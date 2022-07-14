@@ -122,7 +122,8 @@ function click(ev, gl, canvas) {
 /*  tmp = texturesVec[0];
   texturesVec[0] = texturesVec[1];
   texturesVec[1]=tmp;*/
-  Drum=[];
+  setTimeout(function(){
+Drum=[];
   min=0;
   max=1;
   for(var i=0;i<18;i++)
@@ -132,7 +133,9 @@ function click(ev, gl, canvas) {
     Drum.push(Math.floor(Math.random() * (max - min + 1)) + min);
    // console.log(Drum[i]);
   }
-}
+
+  }, 1000);
+  }
 function initVertexBuffers(gl) {
   var verticesTexCoords = new Float32Array([
     // Vertex coordinates, texture coordinate
