@@ -80,6 +80,7 @@ function main() {
   };  
   tick();
   canvas.onmousedown = function(ev) { click(ev, gl, canvas); };
+  buttonSpin.onclick = function(ev) { click(ev, gl, canvas); };
 }
 //var g_last = Date.now();
 function animate(angle) {
@@ -105,6 +106,7 @@ function click(ev, gl, canvas) {
   }
   }, 1000);
   }
+  
 function initVertexBuffers(gl) {
   var sleft = []
   var sright = []
