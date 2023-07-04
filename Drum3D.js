@@ -685,24 +685,25 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix,projMat
   if(startRotate)
     modelMatrix.setRotate(currentAngle, 1, 0, 0);
   gl.uniformMatrix4fv(u_ModelMatrix, false, modelMatrix.elements);
+  var jj=0;
   for(var j = 0; j < 5; j++)
 	{
-		gl.bindTexture(gl.TEXTURE_2D, texturesVec[Drum[0]]);
+		gl.bindTexture(gl.TEXTURE_2D, texturesVec[Drum[jj]]);
 		for (var i = 0 + j * n; i < n + j * n; i++)
 			gl.drawArrays(gl.TRIANGLES, 36 * i, 6);
-		gl.bindTexture(gl.TEXTURE_2D, texturesVec[Drum[1]]);
+		gl.bindTexture(gl.TEXTURE_2D, texturesVec[Drum[++jj]]);
 		for (var i = 0 + j * n; i < n + j * n; i++)
 			gl.drawArrays(gl.TRIANGLES, 36 * i + 6, 6);
-		gl.bindTexture(gl.TEXTURE_2D, texturesVec[Drum[2]]);
+		gl.bindTexture(gl.TEXTURE_2D, texturesVec[Drum[++jj]]);
 		for (var i = 0 + j * n; i < n + j * n; i++)
 			gl.drawArrays(gl.TRIANGLES, 36 * i + 12, 6);
-		gl.bindTexture(gl.TEXTURE_2D, texturesVec[Drum[3]]);
+		gl.bindTexture(gl.TEXTURE_2D, texturesVec[Drum[++jj]]);
 		for (var i = 0 + j * n; i < n + j * n; i++)
 			gl.drawArrays(gl.TRIANGLES, 36 * i + 18, 6);
-		gl.bindTexture(gl.TEXTURE_2D, texturesVec[Drum[4]]);
+		gl.bindTexture(gl.TEXTURE_2D, texturesVec[Drum[++jj]]);
 		for (var i = 0 + j * n; i < n + j * n; i++)
 			gl.drawArrays(gl.TRIANGLES, 36 * i + 24, 6);
-		gl.bindTexture(gl.TEXTURE_2D, texturesVec[Drum[5]]);
+		gl.bindTexture(gl.TEXTURE_2D, texturesVec[Drum[++jj]]);
 		for (var i = 0 + j * n; i < n + j * n; i++)
 			gl.drawArrays(gl.TRIANGLES, 36 * i + 30, 6);
 	}
