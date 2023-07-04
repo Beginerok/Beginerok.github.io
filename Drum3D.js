@@ -685,10 +685,10 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix,projMat
   if(startRotate)
     modelMatrix.setRotate(currentAngle, 1, 0, 0);
   gl.uniformMatrix4fv(u_ModelMatrix, false, modelMatrix.elements);
-  var jj=0;
+  var jj=-1;
   for(var j = 0; j < 5; j++)
 	{
-		gl.bindTexture(gl.TEXTURE_2D, texturesVec[Drum[jj]]);
+		gl.bindTexture(gl.TEXTURE_2D, texturesVec[Drum[++jj]]);
 		for (var i = 0 + j * n; i < n + j * n; i++)
 			gl.drawArrays(gl.TRIANGLES, 36 * i, 6);
 		gl.bindTexture(gl.TEXTURE_2D, texturesVec[Drum[++jj]]);
