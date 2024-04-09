@@ -45,7 +45,8 @@ function main() {
   }
   var canvas = document.getElementById('c');
   var nf = document.getElementById('nearFar');
-  var gl = canvas.getContext("webgl");
+	//var gl = canvas.getContext("webgl");
+	var gl = getWebGLContext(canvas);
   if (!gl) {
     console.log('Failed to get the rendering context for WebGL');
     return;
