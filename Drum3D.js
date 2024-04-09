@@ -24,16 +24,16 @@ var ANGLE_STEP = -720.0;
 var startRotate = 0;
 var textures1,textures2,textures3,textures4,textures5,textures6,textures7,textures8,Drums=[],Tex=[];
 var ready1=false,ready2=false,ready3=false,ready4=false,ready5=false,ready6=false,ready7=false,ready8=false;
-var n = 1;
+var n = 5;
 
-//var myAudio = new Audio('tonus.mp3');
+var myAudio = new Audio('tonus.mp3');
 function main() {
-	/*
+	
 	myAudio.addEventListener('ended', function () {
 		this.currentTime = 0;
 		this.play();
 	}, false);
-	*/
+	
 	var min = 0;
 	var max = 6;
 	Drums.length = 0;
@@ -834,7 +834,7 @@ function loadTexture(gl, textureID, u_SamplerID, imageID,numID) {
 }
 function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix,projMatrix, nf) {
 
-	//myAudio.play();
+	myAudio.play();
 	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 	gl.enable(gl.DEPTH_TEST);
 	gl.uniformMatrix4fv(u_ProjMatrix, false, projMatrix.elements);
