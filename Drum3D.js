@@ -109,7 +109,8 @@ function click(ev, gl, canvas) {
   {
     min = Math.ceil(min);
     max = Math.floor(max);
-    Drums.push(Math.floor(Math.random() * (max - min + 1)) + min);
+	  Drums.push(Math.floor(Math.random() * (max - min + 1)) + min);
+	  myAudio.play();
   }
   }, 1000);
 
@@ -834,7 +835,6 @@ function loadTexture(gl, textureID, u_SamplerID, imageID,numID) {
 }
 function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix,projMatrix, nf) {
 
-	myAudio.play();
 	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 	gl.enable(gl.DEPTH_TEST);
 	gl.uniformMatrix4fv(u_ProjMatrix, false, projMatrix.elements);
