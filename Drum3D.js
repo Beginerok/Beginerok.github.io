@@ -15,8 +15,6 @@ var FSHADER_SOURCE =
   '#ifdef GL_ES\n' +
   'precision mediump float;\n' +
   '#endif\n' +
-  'varying vec4 v_Color;\n'+
-  'varying vec4 a_Color;\n'+
   'uniform sampler2D u_Sampler;\n' +
   'varying vec2 v_TexCoord;\n' +
   'void main() {\n' +
