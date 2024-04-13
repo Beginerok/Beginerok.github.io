@@ -598,10 +598,12 @@ function initVertexBuffers(gl) {
   console.log(gl.getError());
   var a_Color = gl.getAttribLocation(gl.program, 'a_Color');
   console.log(gl.getError());
+  /*
   if (a_Color < 0) {
     console.log('Failed to get the storage location of a_Color');
     return -1;
   }
+  */
   gl.vertexAttribPointer(a_Color, 4, gl.FLOAT, false, FSIZE * 9, FSIZE * 3);
   gl.enableVertexAttribArray(a_Color);
   var a_TexCoord = gl.getAttribLocation(gl.program, 'a_TexCoord');
