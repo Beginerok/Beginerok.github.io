@@ -21,7 +21,7 @@ var FSHADER_SOURCE =
   'gl_FragColor = texture2D(u_Sampler, v_TexCoord);\n' +
   '}\n';
 var ANGLE_STEP = -720.0;
-var startRotate = 0;
+var startRotate = [0,0,0,0,0];
 var textures1,textures2,textures3,textures4,textures5,textures6,textures7,textures8,Drums=[],Tex=[];
 var ready1=false,ready2=false,ready3=false,ready4=false,ready5=false,ready6=false,ready7=false,ready8=false;
 var n = 5;
@@ -65,7 +65,7 @@ function main() {
     console.log('Failed to get the storage location of u_ModelMatrix');
     return;
   }
-  var currentAngle = 0.0;
+  var currentAngle =[0.0,0.0,0.0,0.0,0.0];
   var modelMatrix = new Matrix4();
   var u_ProjMatrix = gl.getUniformLocation(gl.program,'u_ProjMatrix');
   var projMatrix = new Matrix4();
@@ -82,39 +82,139 @@ function main() {
 
   var tick = function() {
     currentAngle = animate(currentAngle);
-    if (currentAngle>=1820 ) {
-      startRotate=!startRotate;
-      currentAngle = 0.0;
+	for(var i=0;i<currentAngle.length;i++)
+    if (currentAngle[i]>=1820 ) {
+      startRotate[i]=!startRotate[i];
+	  
+      currentAngle[i] = 0.0;
 	  }
     draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix,projMatrix, nf);
     requestAnimationFrame(tick, canvas);
   };  
   tick();
-  canvas.onmousedown = function(ev) { click(ev, gl, canvas); };
-	buttonSpin.onclick = function (ev) { click(ev, gl, canvas); };
+  canvas.onmousedown = function(ev) { click(ev, gl, canvas,currentAngle); };
+  buttonSpin.onclick = function (ev) { click(ev, gl, canvas,currentAngle); };
 	
 }
 function animate(angle) {
-  if (startRotate) {
-   angle+=20;
+	for(var i=0;i<angle.length;i++)
+  if (startRotate[i]) {
+   		angle[i]+=30;
+   
+  	var min=0;
+  	var max=6;
+  	var rand = 0;
+   console.log(angle)
+   if (angle[i]==900)
+   {
+	if(i==0)
+		{
+	 Drums[0] = randed(min,max,rand)
+	 Drums[1] = randed(min,max,rand)
+	 Drums[2] = randed(min,max,rand)
+		}
+		if(i==1)
+			{
+	 Drums[6] = randed(min,max,rand)
+	 Drums[7] = randed(min,max,rand)
+	 Drums[8] = randed(min,max,rand)
+			}
+			if(i==2)
+				{
+	 Drums[12] = randed(min,max,rand)
+	 Drums[13] = randed(min,max,rand)
+	 Drums[14] = randed(min,max,rand)
+				}
+				if(i==3)
+					{
+	 Drums[18] = randed(min,max,rand)
+	 Drums[19] = randed(min,max,rand)
+	 Drums[20] = randed(min,max,rand)
+					}
+					if(i==4)
+						{
+	 Drums[24] = randed(min,max,rand)
+	 Drums[25] = randed(min,max,rand)
+	 Drums[26] = randed(min,max,rand)
+						}
+   }
+   if (angle[i]==1080)
+	 {
+		if(i==0)
+			{
+	   Drums[3] = randed(min,max,rand)
+	   Drums[4] = randed(min,max,rand)
+	   Drums[5] = randed(min,max,rand)
+			}
+			
+	if(i==1)
+		{
+	   Drums[9] = randed(min,max,rand)
+	   Drums[10] = randed(min,max,rand)
+	   Drums[11] = randed(min,max,rand)
+		}
+		
+	if(i==2)
+		{
+	   Drums[15] = randed(min,max,rand)
+	   Drums[16] = randed(min,max,rand)
+	   Drums[17] = randed(min,max,rand)
+		}
+		
+	if(i==3)
+		{
+	   Drums[21] = randed(min,max,rand)
+	   Drums[22] = randed(min,max,rand)
+	   Drums[23] = randed(min,max,rand)
+		}
+		
+	if(i==4)
+		{
+	   Drums[27] = randed(min,max,rand)
+	   Drums[28] = randed(min,max,rand)
+	   Drums[29] = randed(min,max,rand)
+		}
+	 }
 }
   return angle;
 }
-function click(ev, gl, canvas) {
-  startRotate = !startRotate;
+function click(ev, gl, canvas,currentAngle) {
+	
+	myAudio.play();
+	for(var i=0;i<5;i++)
+		{
+			(function(index) {
+				setTimeout(function() {
+					startRotate[index] = !startRotate[index]
+		//			console.log(array[index]);
+				}, 500*index);
+			})(i);
+			/*
   setTimeout(function(){
+	startRotate[i] = !startRotate[i]
   Drums=[];
   var min=0;
   var max=6;
+  var rand = 0;
   for(var i=0;i<30;i++)
   {
     min = Math.ceil(min);
     max = Math.floor(max);
-	  Drums.push(Math.floor(Math.random() * (max - min + 1)) + min);
-	  myAudio.play();
+	rand = Math.floor(Math.random() * (max - min + 1)) + min;
+	Drums.push(rand);
+	myAudio.play();
   }
-  }, 1000);
+  }, 100);
+  */
+	}
 
+  }
+  function randed(min,max,rand)
+  {
+	min = Math.ceil(min);
+    max = Math.floor(max);
+	rand = Math.floor(Math.random() * (max - min + 1)) + min;
+	return rand;
   }
 function initVertexBuffers(gl) {
   var sleft = []
@@ -844,29 +944,33 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix,projMat
 	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 	gl.enable(gl.DEPTH_TEST);
 	gl.uniformMatrix4fv(u_ProjMatrix, false, projMatrix.elements);
-	if(startRotate)
-		modelMatrix.setRotate(currentAngle, 1, 0, 0);
-	gl.uniformMatrix4fv(u_ModelMatrix, false, modelMatrix.elements);
-	var i = -1;
+	var k= -1;
 	for(var j = 0; j < 5; j++){
-		gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++i]]);
+		
+	if(startRotate[j])
+		modelMatrix.setRotate(currentAngle[j], 1, 0, 0);
+	gl.uniformMatrix4fv(u_ModelMatrix, false, modelMatrix.elements);
+		gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++k]]);
 		for (var i = 0 + j * n; i < n + j * n; i++)     
 			gl.drawArrays(gl.TRIANGLES, 36 * i, 6);
-		gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++i]]);
+		gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++k]]);
 		for (var i = 0 + j * n; i < n + j * n; i++)
 			gl.drawArrays(gl.TRIANGLES, 36 * i + 6, 6);
-		gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++i]]);
+		gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++k]]);
 		for (var i = 0 + j * n; i < n + j * n; i++)
 			gl.drawArrays(gl.TRIANGLES, 36 * i + 12, 6);
-		gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++i]]);
+		gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++k]]);
 		for (var i = 0 + j * n; i < n + j * n; i++)
 			gl.drawArrays(gl.TRIANGLES, 36 * i + 18, 6);
-		gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++i]]);
+		gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++k]]);
 		for (var i = 0 + j * n; i < n + j * n; i++)
 			gl.drawArrays(gl.TRIANGLES, 36 * i + 24, 6);
-		gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++i]]);
+		gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++k]]);
 		for (var i = 0 + j * n; i < n + j * n; i++)
 			gl.drawArrays(gl.TRIANGLES, 36 * i + 30, 6);
+		
+	gl.uniformMatrix4fv(u_ModelMatrix, false, modelMatrix.elements);
+    modelMatrix.setRotate(0, 1, 0, 0);
 
 	}
     modelMatrix.setRotate(0, 1, 0, 0);
