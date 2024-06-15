@@ -277,13 +277,18 @@ var c6 = {
 	't': 0.0
 }
 var spin = new Audio('spin.mp3');
+var stop = new Audio('stop.mp3');
+var win = new Audio('win.mp3');
+var Credits = document.getElementById("credits").textContent
+var Win = 0;
+console.log(credits)
 function main() {
-
+/*
 	spin.addEventListener('ended', function () {
 		this.currentTime = 0;
 		this.play();
 	}, false);
-
+*/
 	var min = 0;
 	var max = 6;
 	Drums.length = 0;
@@ -334,7 +339,7 @@ function main() {
 		for (var i = 0; i < currentAngle.length; i++)
 			if (currentAngle[i] >= 1820) {
 				startRotate[i] = !startRotate[i];
-
+				stop.play();
 				currentAngle[i] = 0.0;
 			}
 		checkwin();
@@ -351,110 +356,169 @@ function checkwin() {
 		if (Drums[0] == Drums[6] && Drums[6] == Drums[12] && Drums[12] == Drums[18] && Drums[18] == Drums[24]) {
 			//console.log("win1")
 			//return true;
+			if(!flag_win[0])
+				Win+=5;
 			flag_win[0] = true;
+			win.play();
 		}
 		if (Drums[1] == Drums[7] && Drums[7] == Drums[13] && Drums[13] == Drums[19] && Drums[19] == Drums[25]) {
 			//console.log("win2")
 			//return true;
+			if(!flag_win[1])
+				Win+=5;	
 			flag_win[1] = true;
+			win.play();
 		}
 		if (Drums[2] == Drums[8] && Drums[8] == Drums[14] && Drums[14] == Drums[20] && Drums[20] == Drums[26]) {
 			//console.log("win3")
 			//return true;
+			if(!flag_win[2])
+				Win+=5;
 			flag_win[2] = true;
+			win.play();
 		}
 		if (Drums[0] == Drums[6] && Drums[6] == Drums[13] && Drums[13] == Drums[18] && Drums[18] == Drums[24]) {
 			//console.log("win4")
 			//return true;
+			if(!flag_win[3])
+				Win+=5;
 			flag_win[3] = true;
+			win.play();
 		}
 		if (Drums[1] == Drums[7] && Drums[7] == Drums[12] && Drums[12] == Drums[19] && Drums[19] == Drums[25]) {
 			//console.log("win5")
 			//return true;
+			if(!flag_win[4])
+				Win+=5;
 			flag_win[4] = true;
+			win.play();
 		}
 		if (Drums[1] == Drums[7] && Drums[7] == Drums[14] && Drums[14] == Drums[19] && Drums[19] == Drums[25]) {
 			//console.log("win6")
 			//return true;
+			if(!flag_win[5])
+				Win+=5;
 			flag_win[5] = true;
+			win.play();
 		}
 		if (Drums[2] == Drums[8] && Drums[8] == Drums[13] && Drums[13] == Drums[20] && Drums[20] == Drums[26]) {
 			//console.log("win7")
 			//return true;
+			if(!flag_win[6])
+				Win+=5;
 			flag_win[6] = true;
+			win.play();
 		}
 		if (Drums[0] == Drums[7] && Drums[7] == Drums[14] && Drums[14] == Drums[19] && Drums[19] == Drums[24]) {
 			//console.log("win8")
 			//return true;
+			if(!flag_win[7])
+				Win+=5;
 			flag_win[7] = true;
+			win.play();
 		}
 		if (Drums[2] == Drums[7] && Drums[7] == Drums[12] && Drums[12] == Drums[19] && Drums[19] == Drums[26]) {
 			//console.log("win9")
 			//return true;
+			if(!flag_win[8])
+				Win+=5;
 			flag_win[8] = true;
+			win.play();
 		}
 		if (Drums[0] == Drums[7] && Drums[7] == Drums[13] && Drums[13] == Drums[19] && Drums[19] == Drums[24]) {
 			//console.log("win10")
 			//return true;
+			if(!flag_win[9])
+				Win+=5;
 			flag_win[9] = true;
+			win.play();
 		}
 
 		if (Drums[1] == Drums[6] && Drums[6] == Drums[12] && Drums[12] == Drums[18] && Drums[18] == Drums[25]) {
 			//console.log("win11")
 			//return true;
+			if(!flag_win[10])
+				Win+=5;
 			flag_win[10] = true;
+			win.play();
 		}
 
 		if (Drums[1] == Drums[8] && Drums[8] == Drums[14] && Drums[14] == Drums[20] && Drums[20] == Drums[25]) {
 			//console.log("win12")
 			//return true;
+			if(!flag_win[11])
+				Win+=5;
 			flag_win[11] = true;
+			win.play();
 		}
 
 		if (Drums[2] == Drums[7] && Drums[7] == Drums[13] && Drums[13] == Drums[19] && Drums[19] == Drums[26]) {
 			//console.log("win13")
 			//return true;
+			if(!flag_win[12])
+				Win+=5;
 			flag_win[12] = true;
+			win.play();
 		}
 		if (Drums[0] == Drums[6] && Drums[6] == Drums[13] && Drums[13] == Drums[20] && Drums[20] == Drums[26]) {
 			//console.log("win14")
 			//return true;
+			if(!flag_win[13])
+				Win+=5;
 			flag_win[13] = true;
+			win.play();
 		}
 		if (Drums[2] == Drums[8] && Drums[8] == Drums[13] && Drums[13] == Drums[18] && Drums[18] == Drums[24]) {
 			//console.log("win15")
 			//return true;
+			if(!flag_win[14])
+				Win+=5;
 			flag_win[14] = true;
+			win.play();
 		}
 		if (Drums[0] == Drums[7] && Drums[7] == Drums[12] && Drums[12] == Drums[19] && Drums[19] == Drums[24]) {
 			//console.log("win16")
 			//return true;
+			if(!flag_win[15])
+				Win+=5;
 			flag_win[15] = true;
+			win.play();
 		}
 		if (Drums[1] == Drums[6] && Drums[6] == Drums[13] && Drums[13] == Drums[18] && Drums[18] == Drums[25]) {
 			//console.log("win17")
 			//return true;
+			if(!flag_win[16])
+				Win+=5;
 			flag_win[16] = true;
+			win.play();
 		}
 		if (Drums[1] == Drums[8] && Drums[8] == Drums[13] && Drums[13] == Drums[20] && Drums[20] == Drums[25]) {
 			//console.log("win18")
 			//return true;
+			if(!flag_win[17])
+				Win+=5;
 			flag_win[17] = true;
+			win.play();
 		}
 		if (Drums[2] == Drums[7] && Drums[7] == Drums[14] && Drums[14] == Drums[19] && Drums[19] == Drums[26]) {
 			//console.log("win19")
 			//return true;
+			if(!flag_win[18])
+				Win+=5;
 			flag_win[18] = true;
+			win.play();
 		}
 		//console.log("-----------------------------------------")
 	}
+	document.getElementById("win").textContent = Win;
 	return false;
 }
 function animate(angle) {
+	if(startRotate[0] || startRotate[1] || startRotate[2] || startRotate[3] || startRotate[4])
+		spin.play();
 	for (var i = 0; i < angle.length; i++)
 		if (startRotate[i]) {
 			angle[i] += 30;
-			spin.play();
 			var min = document.getElementById("min").value
 			var max = document.getElementById("max").value;
 			var rand = 0;
@@ -593,7 +657,11 @@ function fill_buff_lines(buf, k0, k1, k2, k3, k4, k5, k6) {
 }
 function click(ev, gl, canvas, currentAngle) {
 
-	//myAudio.play();
+	Credits-=10;
+	Credits+=Win;
+	Win=0;
+	document.getElementById("credits").textContent = Credits;
+	document.getElementById("win").textContent = Win;
 	for (var i = 0; i < 5; i++) {
 		(function (index) {
 			setTimeout(function () {
