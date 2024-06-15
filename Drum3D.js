@@ -284,12 +284,12 @@ var Win = 0;
 var total_bet = document.getElementById("total_bet").textContent
 console.log(credits)
 function main() {
-/*
-	spin.addEventListener('ended', function () {
-		this.currentTime = 0;
-		this.play();
-	}, false);
-*/
+	/*
+		spin.addEventListener('ended', function () {
+			this.currentTime = 0;
+			this.play();
+		}, false);
+	*/
 	var min = 0;
 	var max = 6;
 	Drums.length = 0;
@@ -357,80 +357,80 @@ function checkwin() {
 		if (Drums[0] == Drums[6] && Drums[6] == Drums[12] && Drums[12] == Drums[18] && Drums[18] == Drums[24]) {
 			//console.log("win1")
 			//return true;
-			if(!flag_win[0])
-				Win+=5;
+			if (!flag_win[0])
+				Win += 5;
 			flag_win[0] = true;
 			win.play();
 		}
 		if (Drums[1] == Drums[7] && Drums[7] == Drums[13] && Drums[13] == Drums[19] && Drums[19] == Drums[25]) {
 			//console.log("win2")
 			//return true;
-			if(!flag_win[1])
-				Win+=5;	
+			if (!flag_win[1])
+				Win += 5;
 			flag_win[1] = true;
 			win.play();
 		}
 		if (Drums[2] == Drums[8] && Drums[8] == Drums[14] && Drums[14] == Drums[20] && Drums[20] == Drums[26]) {
 			//console.log("win3")
 			//return true;
-			if(!flag_win[2])
-				Win+=5;
+			if (!flag_win[2])
+				Win += 5;
 			flag_win[2] = true;
 			win.play();
 		}
 		if (Drums[0] == Drums[6] && Drums[6] == Drums[13] && Drums[13] == Drums[18] && Drums[18] == Drums[24]) {
 			//console.log("win4")
 			//return true;
-			if(!flag_win[3])
-				Win+=5;
+			if (!flag_win[3])
+				Win += 5;
 			flag_win[3] = true;
 			win.play();
 		}
 		if (Drums[1] == Drums[7] && Drums[7] == Drums[12] && Drums[12] == Drums[19] && Drums[19] == Drums[25]) {
 			//console.log("win5")
 			//return true;
-			if(!flag_win[4])
-				Win+=5;
+			if (!flag_win[4])
+				Win += 5;
 			flag_win[4] = true;
 			win.play();
 		}
 		if (Drums[1] == Drums[7] && Drums[7] == Drums[14] && Drums[14] == Drums[19] && Drums[19] == Drums[25]) {
 			//console.log("win6")
 			//return true;
-			if(!flag_win[5])
-				Win+=5;
+			if (!flag_win[5])
+				Win += 5;
 			flag_win[5] = true;
 			win.play();
 		}
 		if (Drums[2] == Drums[8] && Drums[8] == Drums[13] && Drums[13] == Drums[20] && Drums[20] == Drums[26]) {
 			//console.log("win7")
 			//return true;
-			if(!flag_win[6])
-				Win+=5;
+			if (!flag_win[6])
+				Win += 5;
 			flag_win[6] = true;
 			win.play();
 		}
 		if (Drums[0] == Drums[7] && Drums[7] == Drums[14] && Drums[14] == Drums[19] && Drums[19] == Drums[24]) {
 			//console.log("win8")
 			//return true;
-			if(!flag_win[7])
-				Win+=5;
+			if (!flag_win[7])
+				Win += 5;
 			flag_win[7] = true;
 			win.play();
 		}
 		if (Drums[2] == Drums[7] && Drums[7] == Drums[12] && Drums[12] == Drums[19] && Drums[19] == Drums[26]) {
 			//console.log("win9")
 			//return true;
-			if(!flag_win[8])
-				Win+=5;
+			if (!flag_win[8])
+				Win += 5;
 			flag_win[8] = true;
 			win.play();
 		}
 		if (Drums[0] == Drums[7] && Drums[7] == Drums[13] && Drums[13] == Drums[19] && Drums[19] == Drums[24]) {
 			//console.log("win10")
 			//return true;
-			if(!flag_win[9])
-				Win+=5;
+			if (!flag_win[9])
+				Win += 5;
 			flag_win[9] = true;
 			win.play();
 		}
@@ -438,8 +438,8 @@ function checkwin() {
 		if (Drums[1] == Drums[6] && Drums[6] == Drums[12] && Drums[12] == Drums[18] && Drums[18] == Drums[25]) {
 			//console.log("win11")
 			//return true;
-			if(!flag_win[10])
-				Win+=5;
+			if (!flag_win[10])
+				Win += 5;
 			flag_win[10] = true;
 			win.play();
 		}
@@ -447,8 +447,8 @@ function checkwin() {
 		if (Drums[1] == Drums[8] && Drums[8] == Drums[14] && Drums[14] == Drums[20] && Drums[20] == Drums[25]) {
 			//console.log("win12")
 			//return true;
-			if(!flag_win[11])
-				Win+=5;
+			if (!flag_win[11])
+				Win += 5;
 			flag_win[11] = true;
 			win.play();
 		}
@@ -456,56 +456,56 @@ function checkwin() {
 		if (Drums[2] == Drums[7] && Drums[7] == Drums[13] && Drums[13] == Drums[19] && Drums[19] == Drums[26]) {
 			//console.log("win13")
 			//return true;
-			if(!flag_win[12])
-				Win+=5;
+			if (!flag_win[12])
+				Win += 5;
 			flag_win[12] = true;
 			win.play();
 		}
 		if (Drums[0] == Drums[6] && Drums[6] == Drums[13] && Drums[13] == Drums[20] && Drums[20] == Drums[26]) {
 			//console.log("win14")
 			//return true;
-			if(!flag_win[13])
-				Win+=5;
+			if (!flag_win[13])
+				Win += 5;
 			flag_win[13] = true;
 			win.play();
 		}
 		if (Drums[2] == Drums[8] && Drums[8] == Drums[13] && Drums[13] == Drums[18] && Drums[18] == Drums[24]) {
 			//console.log("win15")
 			//return true;
-			if(!flag_win[14])
-				Win+=5;
+			if (!flag_win[14])
+				Win += 5;
 			flag_win[14] = true;
 			win.play();
 		}
 		if (Drums[0] == Drums[7] && Drums[7] == Drums[12] && Drums[12] == Drums[19] && Drums[19] == Drums[24]) {
 			//console.log("win16")
 			//return true;
-			if(!flag_win[15])
-				Win+=5;
+			if (!flag_win[15])
+				Win += 5;
 			flag_win[15] = true;
 			win.play();
 		}
 		if (Drums[1] == Drums[6] && Drums[6] == Drums[13] && Drums[13] == Drums[18] && Drums[18] == Drums[25]) {
 			//console.log("win17")
 			//return true;
-			if(!flag_win[16])
-				Win+=5;
+			if (!flag_win[16])
+				Win += 5;
 			flag_win[16] = true;
 			win.play();
 		}
 		if (Drums[1] == Drums[8] && Drums[8] == Drums[13] && Drums[13] == Drums[20] && Drums[20] == Drums[25]) {
 			//console.log("win18")
 			//return true;
-			if(!flag_win[17])
-				Win+=5;
+			if (!flag_win[17])
+				Win += 5;
 			flag_win[17] = true;
 			win.play();
 		}
 		if (Drums[2] == Drums[7] && Drums[7] == Drums[14] && Drums[14] == Drums[19] && Drums[19] == Drums[26]) {
 			//console.log("win19")
 			//return true;
-			if(!flag_win[18])
-				Win+=5;
+			if (!flag_win[18])
+				Win += 5;
 			flag_win[18] = true;
 			win.play();
 		}
@@ -515,7 +515,7 @@ function checkwin() {
 	return false;
 }
 function animate(angle) {
-	if(startRotate[0] || startRotate[1] || startRotate[2] || startRotate[3] || startRotate[4])
+	if (startRotate[0] || startRotate[1] || startRotate[2] || startRotate[3] || startRotate[4])
 		spin.play();
 	for (var i = 0; i < angle.length; i++)
 		if (startRotate[i]) {
@@ -658,9 +658,9 @@ function fill_buff_lines(buf, k0, k1, k2, k3, k4, k5, k6) {
 }
 function click(ev, gl, canvas, currentAngle) {
 
-	Credits-=total_bet;
-	Credits+=Win;
-	Win=0;
+	Credits -= total_bet;
+	Credits += Win;
+	Win = 0;
 	document.getElementById("credits").textContent = Credits;
 	document.getElementById("win").textContent = Win;
 	for (var i = 0; i < 5; i++) {
@@ -1199,6 +1199,92 @@ function initVertexBuffers(gl) {
 	fill_buff_lines(buf, b0, b1, c2, b3, c4, b5, b6)
 	fill_buff_lines(buf, c0, c1, b2, c3, b4, c5, c6)
 
+	//vertical drum lines
+
+	buf[buf.length] = -0.48
+	buf[buf.length] = 0.68
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+
+	buf[buf.length] = -0.48
+	buf[buf.length] = -0.68
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+
+
+
+	buf[buf.length] = -0.16
+	buf[buf.length] = 0.68
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+
+	buf[buf.length] = -0.16
+	buf[buf.length] = -0.68
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+
+
+
+	buf[buf.length] = 0.16
+	buf[buf.length] = 0.68
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+
+	buf[buf.length] = 0.16
+	buf[buf.length] = -0.68
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+
+	buf[buf.length] = 0.48
+	buf[buf.length] = 0.68
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+
+	buf[buf.length] = 0.48
+	buf[buf.length] = -0.68
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+
 	var vertexTexCoordBuffer = gl.createBuffer();
 	if (!vertexTexCoordBuffer) {
 		console.log('Failed to create the buffer object');
@@ -1534,4 +1620,10 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 		gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 119, 7);
 	if (flag_win[18])
 		gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 126, 7);
+
+
+	gl.drawArrays(gl.LINES, 36 * 5 * n + 6 + 133, 2);
+	gl.drawArrays(gl.LINES, 36 * 5 * n + 6 + 135, 2);
+	gl.drawArrays(gl.LINES, 36 * 5 * n + 6 + 137, 2);
+	gl.drawArrays(gl.LINES, 36 * 5 * n + 6 + 139, 2);
 }
