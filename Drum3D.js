@@ -45,7 +45,6 @@ var flag_win = [
 	false,
 	false
 ]
-var myAudio = new Audio('tonus.mp3');
 var a0 = {
 	'x': -1.0,
 	'y': 0.68 * 2.0 / 3.0,
@@ -277,9 +276,10 @@ var c6 = {
 	's': 0.0,
 	't': 0.0
 }
+var spin = new Audio('spin.mp3');
 function main() {
 
-	myAudio.addEventListener('ended', function () {
+	spin.addEventListener('ended', function () {
 		this.currentTime = 0;
 		this.play();
 	}, false);
@@ -454,7 +454,7 @@ function animate(angle) {
 	for (var i = 0; i < angle.length; i++)
 		if (startRotate[i]) {
 			angle[i] += 30;
-
+			spin.play();
 			var min = document.getElementById("min").value
 			var max = document.getElementById("max").value;
 			var rand = 0;
