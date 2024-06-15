@@ -281,6 +281,7 @@ var stop = new Audio('stop.mp3');
 var win = new Audio('win.mp3');
 var Credits = document.getElementById("credits").textContent
 var Win = 0;
+var total_bet = document.getElementById("total_bet").textContent
 console.log(credits)
 function main() {
 /*
@@ -657,7 +658,7 @@ function fill_buff_lines(buf, k0, k1, k2, k3, k4, k5, k6) {
 }
 function click(ev, gl, canvas, currentAngle) {
 
-	Credits-=10;
+	Credits-=total_bet;
 	Credits+=Win;
 	Win=0;
 	document.getElementById("credits").textContent = Credits;
