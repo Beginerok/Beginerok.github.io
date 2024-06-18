@@ -1,13 +1,22 @@
 <head>
-<link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css">
 </head>
+
 <body onload=main()>
-    <label>Credits</label>
-    <label id="credits">1000</label>
-    <label>Win</label>
-    <label id="win">0</label>
-    <label>Total bet</label>
-    <label id="total_bet">10</label>
+    <div>
+        <div>
+            <label>Credits</label>
+            <label id="credits">1000</label>
+        </div>
+        <div>
+            <label>Win</label>
+            <label id="win">0</label>
+        </div>
+        <div>
+            <label>Total bet</label>
+            <label id="total_bet">10</label>
+        </div>
+    </div>
     <canvas id="c"></canvas>
     <button id="buttonSpin">Spin</button>
     <!--
@@ -19,18 +28,26 @@
     for webgl-utils, m3, m4, and webgl-lessons-ui.
     -->
     <p id="nearFar" hidden> The near and far values are displayed here. </p>
-    <label>Generator interval from 0 to 6(integer numbers)</label>
-    <label><input type="text" id="min" value="0"/>0</label>
-    <label><input type="text" id="max" value="6"/>6</label>
+    <div>
+        <div>
+            <label>Generator interval from 0 to 6(integer numbers) </label>
+        </div>
+        <div>
+            <label><input type="text" id="min" value="0" size="1" />0</label>
+        </div>
+        <div>
+            <label><input type="text" id="max" value="6" size="1" />6</label>
+        </div>
+    </div>
 </body>
-    <script src="webgl-utils.js"></script>
-    <script src="webgl-debug.js"></script>
-    <script src="cuon-utils.js"></script>
-    <script src="cuon-matrix.js"></script>
-    <!--
+<script src="webgl-utils.js"></script>
+<script src="webgl-debug.js"></script>
+<script src="cuon-utils.js"></script>
+<script src="cuon-matrix.js"></script>
+<!--
     <script src="http://rodger.global-linguist.com/webgl/lib/webgl-utils.js"></script>
     <script src="http://rodger.global-linguist.com/webgl/lib/webgl-debug.js"></script>
     <script src="http://rodger.global-linguist.com/webgl/lib/cuon-utils.js"></script>
     <script src="http://rodger.global-linguist.com/webgl/lib/cuon-matrix.js"></script>
     -->
-	<script src="Drum3D.js"></script>
+<script src="Drum3D.js"></script>
