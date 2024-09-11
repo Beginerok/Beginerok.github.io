@@ -710,9 +710,26 @@ myAudio.play();
 
 }
 function randed(min, max, rand) {
+	var r100=[];
 	min = Math.ceil(min);
 	max = Math.floor(max);
-	rand = Math.floor(Math.random() * (max - min + 1)) + min;
+	for(var i=0;i<50;i++)
+		r100.push(1);
+	for(var i=50;i<60;i++)
+		r100.push(5);
+	for(var i=60;i<70;i++)
+		r100.push(3);
+	for(var i=70;i<80;i++)
+		r100.push(6);
+	for(var i=80;i<90;i++)
+		r100.push(4);
+	for(var i=90;i<95;i++)
+		r100.push(0);
+	for(var i=95;i<100;i++)
+		r100.push(2);
+	min = 0;
+	max = 99;
+	rand = r100[Math.floor(Math.random() * (max - min + 1)) + min];
 	return rand;
 }
 function initVertexBuffers(gl) {
