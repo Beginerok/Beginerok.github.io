@@ -23,7 +23,7 @@ var FSHADER_SOURCE =
 var startRotate = [0, 0, 0, 0, 0];
 var textures1, textures2, textures3, textures4, textures5, textures6, textures7, textures8, Drums = [], Tex = [];
 var ready1 = false, ready2 = false, ready3 = false, ready4 = false, ready5 = false, ready6 = false, ready7 = false, ready8 = false;
-var n =  1
+var n =  2;
 var flag_win = [
 	false,
 	false,
