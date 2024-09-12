@@ -23,7 +23,7 @@ var FSHADER_SOURCE =
 var startRotate = [0, 0, 0, 0, 0];
 var textures1, textures2, textures3, textures4, textures5, textures6, textures7, textures8, Drums = [], Tex = [];
 var ready1 = false, ready2 = false, ready3 = false, ready4 = false, ready5 = false, ready6 = false, ready7 = false, ready8 = false;
-var n = 5;
+var n =  1
 var flag_win = [
 	false,
 	false,
@@ -350,8 +350,14 @@ function main() {
 	tick();
 	canvas.onmousedown = function (ev) { click(ev, gl, canvas, currentAngle); };
 	buttonSpin.onclick = function (ev) { click(ev, gl, canvas, currentAngle); };
-
+	var range = document.getElementById("quality");
+	range.onchange =function(value){
+		n = parseInt(range.value,10);
+		initVertexBuffers(gl);
+		//console.log("n="+n);
+	}
 }
+
 function checkwin() {
 	if (!startRotate[0] && !startRotate[1] && !startRotate[2] && !startRotate[3] && !startRotate[4]) {
 		if (Drums[0] == Drums[6] && Drums[6] == Drums[12] && Drums[12] == Drums[18] && Drums[18] == Drums[24]) {
