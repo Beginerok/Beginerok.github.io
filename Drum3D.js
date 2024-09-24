@@ -693,7 +693,7 @@ function click(ev, gl, canvas, currentAngle) {
 				flag_win[17] = false
 				flag_win[18] = false
 				//			console.log(array[index]);
-			}, 500 * index);
+			}, 1200 * index);
 		})(i);
 		/*
 setTimeout(function(){
