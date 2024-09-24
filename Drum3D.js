@@ -1365,14 +1365,23 @@ function LoadDrum(gl) {
 		u_Sampler1, u_Sampler2, u_Sampler3, u_Sampler4, u_Sampler5, u_Sampler6, u_Sampler7
 		, images1, images2, images3, images4, images5, images6, images7,
 		paths1, paths2, paths3, paths4, paths5, paths6, paths7;
-	paths1 = "https://s6.imgcdn.dev/WkXEM.png";//"auto1.png";//auto1
-	paths2 = "https://s6.imgcdn.dev/WkHO0.png";//'auto2.png';//auto2
-	paths3 = "https://s6.imgcdn.dev/WkF5e.png";//'auto3.png';//auto3
-	paths4 = "https://s6.imgcdn.dev/WkqYC.png";//"auto4.png";//auto4
-	paths5 = "https://s6.imgcdn.dev/WketS.png";//"auto5.png";//auto5
-	paths6 = "https://s6.imgcdn.dev/WkbzH.png";//"bonus.png";//bonus
-	paths7 = "https://s6.imgcdn.dev/WkEQd.jpg";//"wild.jpg";//wild
-
+		
+		paths1 = "https://s6.imgcdn.dev/qzJu2.png";
+		paths2 = "https://s6.imgcdn.dev/qzo1i.png";
+		paths3 = "https://s6.imgcdn.dev/qzpWH.png";
+		paths4 = "https://s6.imgcdn.dev/qaYhS.png";
+		paths5 = "https://s6.imgcdn.dev/qajZe.png";
+		paths6 = "https://s6.imgcdn.dev/qahPC.png";
+		paths7 = "https://s6.imgcdn.dev/qaw80.png";
+		/*
+		paths1 = "https://s6.imgcdn.dev/WkXEM.png";//"auto1.png";//auto1
+		paths2 = "https://s6.imgcdn.dev/WkHO0.png";//'auto2.png';//auto2
+		paths3 = "https://s6.imgcdn.dev/WkF5e.png";//'auto3.png';//auto3
+		paths4 = "https://s6.imgcdn.dev/WkqYC.png";//"auto4.png";//auto4
+		paths5 = "https://s6.imgcdn.dev/WketS.png";//"auto5.png";//auto5
+		paths6 = "https://s6.imgcdn.dev/WkbzH.png";//"bonus.png";//bonus
+		paths7 = "https://s6.imgcdn.dev/WkEQd.jpg";//"wild.jpg";//wild
+		*/
 	texturesdrum1 = gl.createTexture();
 	u_Sampler1 = gl.getUniformLocation(gl.program, 'u_Sampler');
 	images1 = new Image();
