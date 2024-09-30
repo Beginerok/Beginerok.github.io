@@ -694,7 +694,7 @@ function click(ev, gl, canvas, currentAngle) {
 				flag_win[17] = false
 				flag_win[18] = false
 				//			console.log(array[index]);
-			}, 1200 * index);
+			}, 200 * index);
 		})(i);
 		/*
 setTimeout(function(){
@@ -1354,10 +1354,10 @@ function initTextures(gl) {
 	var texturefon = gl.createTexture();
 	var u_Samplerq = gl.getUniformLocation(gl.program, 'u_Sampler');
 	var fon = new Image();
-	requestCORSIfNotSameOrigin(fon,/*'border.png'*/"https://s6.imgcdn.dev/Wk8Sl.png");
+	requestCORSIfNotSameOrigin(fon,/*'border.png'*/"https://s6.imgcdn.dev/WSTpv.png");
 	fon.crossOrigin = "anonymous";
 	fon.onload = function () { loadTexture(gl, texturefon, u_Samplerq, fon, 0); };
-	fon.src = "https://s6.imgcdn.dev/Wk8Sl.png";//'border.png'
+	fon.src = "https://s6.imgcdn.dev/WSTpv.png";//'border.png'
 	LoadDrum(gl);
 	return true;
 }
