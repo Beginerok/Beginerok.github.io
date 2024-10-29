@@ -1373,7 +1373,7 @@ function LoadDrum(gl) {
 		paths4 = "https://s6.imgcdn.dev/qaYhS.png";
 		paths5 = "https://s6.imgcdn.dev/qajZe.png";
 		paths6 = "https://s6.imgcdn.dev/qahPC.png";
-		paths7 = "https://s6.imgcdn.dev/qaw80.png";
+		paths7 = "https://s6.imgcdn.dev/XVgUH.png";
 		/*
 		paths1 = "https://s6.imgcdn.dev/WkXEM.png";//"auto1.png";//auto1
 		paths2 = "https://s6.imgcdn.dev/WkHO0.png";//'auto2.png';//auto2
