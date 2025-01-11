@@ -1140,6 +1140,7 @@ function initVertexBuffers(gl) {
 		jIter++;
 	}
 	console.log(buf.length)
+	console.log("comb-",gl.MAX_COMBINED_TEXTURE_IMAGE_UNITS)
 	buf[buf.length] = -1.0
 	buf[buf.length] = 1.0
 	buf[buf.length] = 0.0
@@ -1682,4 +1683,5 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 	
 	gl.bindTexture(gl.TEXTURE_2D, texturescard);
 	gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141, 6);
+	Credits = gl.MAX_COMBINED_TEXTURE_IMAGE_UNITS;
 }
