@@ -22,7 +22,7 @@ var FSHADER_SOURCE =
 	'gl_FragColor = texture2D(u_Sampler, v_TexCoord)+v_Color;\n' +
 	'}\n';
 var startRotate = [0, 0, 0, 0, 0];
-var textures1, textures2, textures3, textures4, textures5, textures6, textures7, textures8, Drums = [], Tex = [];
+var textures1, textures2, textures3, textures4, textures5, textures6, textures7, textures8, Drums = [], Tex = [],texturescard;
 var ready1 = false, ready2 = false, ready3 = false, ready4 = false, ready5 = false, ready6 = false, ready7 = false, ready8 = false;
 var n =  2;
 var flag_win = [
@@ -325,7 +325,7 @@ function main() {
 	var modelMatrix = new Matrix4();
 	var u_ProjMatrix = gl.getUniformLocation(gl.program, 'u_ProjMatrix');
 	var projMatrix = new Matrix4();
-	var g_near = -1.0, g_far = 1.0;
+	var g_near = -2.0, g_far = 2.1;
 	projMatrix.setOrtho(-1, 1, -1, 1, g_near, g_far);
 	nf.innerHTML = 'near: ' + g_near + ', far: ' + g_far;
 	gl.uniformMatrix4fv(u_ProjMatrix, false, projMatrix.elements);
@@ -1227,20 +1227,20 @@ function initVertexBuffers(gl) {
 
 	buf[buf.length] = -0.48
 	buf[buf.length] = 0.68
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
+	buf[buf.length] = 1.1
+	buf[buf.length] = 0.5
+	buf[buf.length] = 0.5
+	buf[buf.length] = 0.5
 	buf[buf.length] = 1.0
 	buf[buf.length] = 0.0
 	buf[buf.length] = 0.0
 
 	buf[buf.length] = -0.48
 	buf[buf.length] = -0.68
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
+	buf[buf.length] = 1.1
+	buf[buf.length] = 0.5
+	buf[buf.length] = 0.5
+	buf[buf.length] = 0.5
 	buf[buf.length] = 1.0
 	buf[buf.length] = 0.0
 	buf[buf.length] = 0.0
@@ -1249,20 +1249,20 @@ function initVertexBuffers(gl) {
 
 	buf[buf.length] = -0.16
 	buf[buf.length] = 0.68
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
+	buf[buf.length] = 1.1
+	buf[buf.length] = 0.5
+	buf[buf.length] = 0.5
+	buf[buf.length] = 0.5
 	buf[buf.length] = 1.0
 	buf[buf.length] = 0.0
 	buf[buf.length] = 0.0
 
 	buf[buf.length] = -0.16
 	buf[buf.length] = -0.68
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
+	buf[buf.length] = 1.1
+	buf[buf.length] = 0.5
+	buf[buf.length] = 0.5
+	buf[buf.length] = 0.5
 	buf[buf.length] = 1.0
 	buf[buf.length] = 0.0
 	buf[buf.length] = 0.0
@@ -1271,44 +1271,46 @@ function initVertexBuffers(gl) {
 
 	buf[buf.length] = 0.16
 	buf[buf.length] = 0.68
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
+	buf[buf.length] = 1.1
+	buf[buf.length] = 0.5
+	buf[buf.length] = 0.5
+	buf[buf.length] = 0.5
 	buf[buf.length] = 1.0
 	buf[buf.length] = 0.0
 	buf[buf.length] = 0.0
 
 	buf[buf.length] = 0.16
 	buf[buf.length] = -0.68
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
+	buf[buf.length] = 1.1
+	buf[buf.length] = 0.5
+	buf[buf.length] = 0.5
+	buf[buf.length] = 0.5
 	buf[buf.length] = 1.0
 	buf[buf.length] = 0.0
 	buf[buf.length] = 0.0
 
 	buf[buf.length] = 0.48
 	buf[buf.length] = 0.68
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
+	buf[buf.length] = 1.1
+	buf[buf.length] = 0.5
+	buf[buf.length] = 0.5
+	buf[buf.length] = 0.5
 	buf[buf.length] = 1.0
 	buf[buf.length] = 0.0
 	buf[buf.length] = 0.0
 
 	buf[buf.length] = 0.48
 	buf[buf.length] = -0.68
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0
+	buf[buf.length] = 1.1
+	buf[buf.length] = 0.5
+	buf[buf.length] = 0.5
+	buf[buf.length] = 0.5
 	buf[buf.length] = 1.0
 	buf[buf.length] = 0.0
 	buf[buf.length] = 0.0
 
+	for (var i=0;i<bufx2.length;i++)
+		buf.push(bufx2[i])
 	var vertexTexCoordBuffer = gl.createBuffer();
 	if (!vertexTexCoordBuffer) {
 		console.log('Failed to create the buffer object');
@@ -1362,10 +1364,10 @@ function initTextures(gl) {
 	return true;
 }
 function LoadDrum(gl) {
-	var texturesdrum1, texturesdrum2, texturesdrum3, texturesdrum4, texturesdrum5, texturesdrum6, texturesdrum7,
-		u_Sampler1, u_Sampler2, u_Sampler3, u_Sampler4, u_Sampler5, u_Sampler6, u_Sampler7
-		, images1, images2, images3, images4, images5, images6, images7,
-		paths1, paths2, paths3, paths4, paths5, paths6, paths7;
+	var texturesdrum1, texturesdrum2, texturesdrum3, texturesdrum4, texturesdrum5, texturesdrum6, texturesdrum7,texturescard,
+		u_Sampler1, u_Sampler2, u_Sampler3, u_Sampler4, u_Sampler5, u_Sampler6, u_Sampler7,u_Samplercard,
+		images1, images2, images3, images4, images5, images6, images7,imagescard,
+		paths1, paths2, paths3, paths4, paths5, paths6, paths7,pathscard;
 		
 		paths1 = "https://s6.imgcdn.dev/qzJu2.png";
 		paths2 = "https://s6.imgcdn.dev/qzo1i.png";
@@ -1374,6 +1376,7 @@ function LoadDrum(gl) {
 		paths5 = "https://s6.imgcdn.dev/qajZe.png";
 		paths6 = "https://s6.imgcdn.dev/qahPC.png";
 		paths7 = "https://s6.imgcdn.dev/XVgUH.png";
+		pathscard = "https://s6.imgcdn.dev/pZgXO.png";
 		/*
 		paths1 = "https://s6.imgcdn.dev/WkXEM.png";//"auto1.png";//auto1
 		paths2 = "https://s6.imgcdn.dev/WkHO0.png";//'auto2.png';//auto2
@@ -1447,6 +1450,15 @@ function LoadDrum(gl) {
 	images7.crossOrigin = "anonymous";
 	images7.onload = function () { loadTexture(gl, texturesdrum7, u_Sampler7, images7, 7); };
 	images7.src = paths7;
+
+	
+	texturescard = gl.createTexture();
+	u_Samplercard = gl.getUniformLocation(gl.program, 'u_Sampler');
+	imagescard = new Image();
+	requestCORSIfNotSameOrigin(imagescard, pathscard);
+	imagescard.crossOrigin = "anonymous";
+	imagescard.onload = function () { loadTexture(gl, texturescard, u_Samplercard, imagescard, 8); };
+	imagescard.src = pathscard;
 }
 function loadTexture(gl, textureID, u_SamplerID, imageID, numID) {
 	gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
@@ -1493,7 +1505,7 @@ function loadTexture(gl, textureID, u_SamplerID, imageID, numID) {
 			}
 		case 8:
 			{
-				gl.activeTexture(gl.TEXTURE8);
+				gl.activeTexture(gl.TEXTURE9);
 				break;
 			}
 		default:
@@ -1570,6 +1582,13 @@ function loadTexture(gl, textureID, u_SamplerID, imageID, numID) {
 				ready8 = true;
 				break;
 			}
+		case 8:
+				{
+					texturescard = textureID;
+					//Tex.push(texturescard);
+					//ready8 = true;
+					break;
+				}
 		default:
 			{
 				break;
@@ -1659,4 +1678,8 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 	gl.drawArrays(gl.LINES, 36 * 5 * n + 6 + 135, 2);
 	gl.drawArrays(gl.LINES, 36 * 5 * n + 6 + 137, 2);
 	gl.drawArrays(gl.LINES, 36 * 5 * n + 6 + 139, 2);
+
+	
+	gl.bindTexture(gl.TEXTURE_2D, texturescard);
+	gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141, 6);
 }

@@ -1,0 +1,60 @@
+bufx2=[]
+bufx2[bufx2.length] = -1.0
+bufx2[bufx2.length] = 1.0
+bufx2[bufx2.length] = 2.0
+bufx2[bufx2.length] = 0.0
+bufx2[bufx2.length] = 0.0
+bufx2[bufx2.length] = 0.0
+bufx2[bufx2.length] = 1.0
+bufx2[bufx2.length] = 1.0//0
+bufx2[bufx2.length] = 1.0//0
+
+bufx2[bufx2.length] = -1.0
+bufx2[bufx2.length] = -1.0
+bufx2[bufx2.length] = 2.0
+bufx2[bufx2.length] = 0.0
+bufx2[bufx2.length] = 0.0
+bufx2[bufx2.length] = 0.0
+bufx2[bufx2.length] = 1.0
+bufx2[bufx2.length] = 1.0//0
+bufx2[bufx2.length] = 0.0//1
+
+bufx2[bufx2.length] = 1.0
+bufx2[bufx2.length] = 1.0
+bufx2[bufx2.length] = 2.0
+bufx2[bufx2.length] = 0.0
+bufx2[bufx2.length] = 0.0
+bufx2[bufx2.length] = 0.0
+bufx2[bufx2.length] = 1.0
+bufx2[bufx2.length] = 0.0//1
+bufx2[bufx2.length] = 1.0//0
+
+bufx2[bufx2.length] = 1.0
+bufx2[bufx2.length] = 1.0
+bufx2[bufx2.length] = 2.0
+bufx2[bufx2.length] = 0.0
+bufx2[bufx2.length] = 0.0
+bufx2[bufx2.length] = 0.0
+bufx2[bufx2.length] = 1.0
+bufx2[bufx2.length] = 0.0//1
+bufx2[bufx2.length] = 1.0//0
+
+bufx2[bufx2.length] = -1.0
+bufx2[bufx2.length] = -1.0
+bufx2[bufx2.length] = 2.0
+bufx2[bufx2.length] = 0.0
+bufx2[bufx2.length] = 0.0
+bufx2[bufx2.length] = 0.0
+bufx2[bufx2.length] = 1.0
+bufx2[bufx2.length] = 1.0//0 
+bufx2[bufx2.length] = 0.0//1
+
+bufx2[bufx2.length] = 1.0
+bufx2[bufx2.length] = -1.0
+bufx2[bufx2.length] = 2.0
+bufx2[bufx2.length] = 0.0
+bufx2[bufx2.length] = 0.0
+bufx2[bufx2.length] = 0.0
+bufx2[bufx2.length] = 1.0
+bufx2[bufx2.length] = 0.0//1
+bufx2[bufx2.length] = 0.0//1
