@@ -1452,7 +1452,7 @@ function LoadDrum(gl) {
 	images7.onload = function () { loadTexture(gl, texturesdrum7, u_Sampler7, images7, 7); };
 	images7.src = paths7;
 
-	
+	/*
 	texturescard = gl.createTexture();
 	u_Samplercard = gl.getUniformLocation(gl.program, 'u_Sampler');
 	imagescard = new Image();
@@ -1460,6 +1460,7 @@ function LoadDrum(gl) {
 	imagescard.crossOrigin = "anonymous";
 	imagescard.onload = function () { loadTexture(gl, texturescard, u_Samplercard, imagescard, 8); };
 	imagescard.src = pathscard;
+	*/
 }
 function loadTexture(gl, textureID, u_SamplerID, imageID, numID) {
 	gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
@@ -1506,7 +1507,7 @@ function loadTexture(gl, textureID, u_SamplerID, imageID, numID) {
 			}
 		case 8:
 			{
-				gl.activeTexture(gl.TEXTURE9);
+				gl.activeTexture(gl.TEXTURE8);
 				break;
 			}
 		default:
@@ -1681,7 +1682,7 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 	gl.drawArrays(gl.LINES, 36 * 5 * n + 6 + 139, 2);
 
 	
-	gl.bindTexture(gl.TEXTURE_2D, texturescard);
-	gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141, 6);
+	//gl.bindTexture(gl.TEXTURE_2D, texturescard);
+	//gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141, 6);
 	Credits = gl.MAX_COMBINED_TEXTURE_IMAGE_UNITS;
 }
