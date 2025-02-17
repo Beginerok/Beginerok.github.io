@@ -1369,7 +1369,7 @@ function LoadDrum(gl) {
 		u_Sampler1, u_Sampler2, u_Sampler3, u_Sampler4, u_Sampler5, u_Sampler6, u_Sampler7,u_Samplercard,
 		images1, images2, images3, images4, images5, images6, images7,imagescard,
 		paths1, paths2, paths3, paths4, paths5, paths6, paths7,pathscard;
-		
+		/*
 		paths1 = "https://s6.imgcdn.dev/qzJu2.png";
 		paths2 = "https://s6.imgcdn.dev/qzo1i.png";
 		paths3 = "https://s6.imgcdn.dev/qzpWH.png";
@@ -1378,6 +1378,7 @@ function LoadDrum(gl) {
 		paths6 = "https://s6.imgcdn.dev/qahPC.png";
 		paths7 = "https://s6.imgcdn.dev/XVgUH.png";
 		pathscard = "https://s6.imgcdn.dev/pZgXO.png";
+		*/
 		/*
 		paths1 = "https://s6.imgcdn.dev/WkXEM.png";//"auto1.png";//auto1
 		paths2 = "https://s6.imgcdn.dev/WkHO0.png";//'auto2.png';//auto2
@@ -1387,6 +1388,15 @@ function LoadDrum(gl) {
 		paths6 = "https://s6.imgcdn.dev/WkbzH.png";//"bonus.png";//bonus
 		paths7 = "https://s6.imgcdn.dev/WkEQd.jpg";//"wild.jpg";//wild
 		*/
+		
+		paths1 = "https://s6.imgcdn.dev/YYH9Ow.png";
+		paths2 = "https://s6.imgcdn.dev/YYHfQT.png";
+		paths3 = "https://s6.imgcdn.dev/YYHWe9.png";
+		paths4 = "https://s6.imgcdn.dev/YYH3cy.png";
+		paths5 = "https://s6.imgcdn.dev/YYHLz8.png";
+		paths6 = "https://s6.imgcdn.dev/YYHbt2.png";
+		paths7 = "https://s6.imgcdn.dev/YYHmYi.png";
+
 	texturesdrum1 = gl.createTexture();
 	u_Sampler1 = gl.getUniformLocation(gl.program, 'u_Sampler');
 	images1 = new Image();
