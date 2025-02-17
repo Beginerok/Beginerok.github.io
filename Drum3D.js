@@ -21,6 +21,7 @@ var FSHADER_SOURCE =
 	'void main() {\n' +
 	'gl_FragColor = texture2D(u_Sampler, v_TexCoord)+v_Color;\n' +
 	'}\n';
+var x_2=false
 var startRotate = [0, 0, 0, 0, 0];
 var textures1, textures2, textures3, textures4, textures5, textures6, textures7, textures8, Drums = [], Tex = [],texturescard;
 var ready1 = false, ready2 = false, ready3 = false, ready4 = false, ready5 = false, ready6 = false, ready7 = false, ready8 = false;
@@ -283,7 +284,7 @@ var win = new Audio('win.mp3');
 var Credits = document.getElementById("credits").textContent
 var Win = 0;
 var total_bet = document.getElementById("total_bet").textContent
-console.log(credits)
+//console.log(credits)
 function main() {
 	/*
 		spin.addEventListener('ended', function () {
@@ -351,6 +352,7 @@ function main() {
 	tick();
 	canvas.onmousedown = function (ev) { click(ev, gl, canvas, currentAngle); };
 	buttonSpin.onclick = function (ev) { click(ev, gl, canvas, currentAngle); };
+	buttonRisk.onclick = function (ev) { x_2 = !x_2; };
 	var range = document.getElementById("quality");
 	range.onchange =function(value){
 		n = parseInt(range.value,10);
@@ -1139,8 +1141,8 @@ function initVertexBuffers(gl) {
 		}
 		jIter++;
 	}
-	console.log(buf.length)
-	console.log("comb-",gl.MAX_COMBINED_TEXTURE_IMAGE_UNITS)
+	//console.log(buf.length)
+	//console.log("comb-",gl.MAX_COMBINED_TEXTURE_IMAGE_UNITS)
 	buf[buf.length] = -1.0
 	buf[buf.length] = 1.0
 	buf[buf.length] = 0.0
@@ -1310,6 +1312,8 @@ function initVertexBuffers(gl) {
 	buf[buf.length] = 0.0
 	buf[buf.length] = 0.0
 
+	//console.log(buf.length)
+
 	for (var i=0;i<bufx2.length;i++)
 		buf.push(bufx2[i])
 	var vertexTexCoordBuffer = gl.createBuffer();
@@ -1328,9 +1332,9 @@ function initVertexBuffers(gl) {
 	}
 	gl.vertexAttribPointer(a_Position, 3, gl.FLOAT, false, FSIZE * 9, 0);
 	gl.enableVertexAttribArray(a_Position);
-	console.log(gl.getError());
+	//console.log(gl.getError());
 	var a_Color = gl.getAttribLocation(gl.program, 'a_Color');
-	console.log(gl.getError());
+	//console.log(gl.getError());
 	/*
 	if (a_Color < 0) {
 	  console.log('Failed to get the storage location of a_Color');
@@ -1609,9 +1613,11 @@ function loadTexture(gl, textureID, u_SamplerID, imageID, numID) {
 	}
 }
 function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMatrix, nf) {
-
+	initVertexBuffers(gl)
 	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 	gl.enable(gl.DEPTH_TEST);
+	if(!x_2)
+	{
 	gl.uniformMatrix4fv(u_ProjMatrix, false, projMatrix.elements);
 	var k = -1;
 	for (var j = 0; j < 5; j++) {
@@ -1692,8 +1698,10 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 	gl.drawArrays(gl.LINES, 36 * 5 * n + 6 + 137, 2);
 	gl.drawArrays(gl.LINES, 36 * 5 * n + 6 + 139, 2);
 
-	
-	//gl.bindTexture(gl.TEXTURE_2D, texturescard);
-	//gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141, 6);
-	Credits = gl.MAX_COMBINED_TEXTURE_IMAGE_UNITS;
+	}
+	else
+	{
+		gl.bindTexture(gl.TEXTURE_2D, texturescard);
+		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141, 6);
+	}
 }
