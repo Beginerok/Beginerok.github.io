@@ -27,10 +27,23 @@ var FSHADER_SOURCE =
     var height ;
 	
         // Чтение пикселей из второго канваса
-       var pixels2;
-       var  pixels1;
-	   var t = false;
+    var pixels2;
+    var pixels1;
+	var buff=[]
 function main() {
+	
+	buff.push(1.0)
+	buff.push(1.0)
+	buff.push(1.0)
+	buff.push(0.0)
+	buff.push(0.0)
+	buff.push(1.0)
+	buff.push(0.0)
+	buff.push(1.0)
+	buff.push(1.0)
+	buff.push(0.0)
+	buff.push(0.0)
+	buff.push(0.0)
 	var canvas1 = document.getElementById('canvas1');
 	var canvas2 = document.getElementById('canvas2');
 	var nf = document.getElementById('nearFar');
@@ -46,8 +59,8 @@ function main() {
 		return;
 	}
 	initShaders(gl2, VSHADER_SOURCE, FSHADER_SOURCE)
-	var nj = initVertexBuffers(gl1);
-	var nj2 = initVertexBuffers(gl2);
+	var nj = initVertexBuffers(gl1,false);
+	var nj2 = initVertexBuffers(gl2,true);
 	if (nj < 0) {
 		console.log('Failed to set the vertex information');
 		return;
@@ -91,10 +104,10 @@ function main() {
 		requestAnimationFrame(tick, canvas2);
 	};
 	tick();
-	initVertexBuffers(gl1);
-	initVertexBuffers(gl2);
+	//initVertexBuffers(gl1,false);
+	//initVertexBuffers(gl2,true);
 }
-function initVertexBuffers(gl) {
+function initVertexBuffers(gl,b) {
 	var buf = [];
 	buf[buf.length] = -1.0
 	buf[buf.length] = 1.0
@@ -103,8 +116,19 @@ function initVertexBuffers(gl) {
 	buf[buf.length] = 0.0
 	buf[buf.length] = 0.0
 	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0//0
-	buf[buf.length] = 1.0//0
+	if (b===true)
+	{
+		if (buff)
+		{
+			buf[buf.length] = buff[0]
+			buf[buf.length] = buff[1]
+		}
+	}
+	else
+	{
+		buf[buf.length] = 1.0//0
+		buf[buf.length] = 1.0//0
+	}
 
 	buf[buf.length] = -1.0
 	buf[buf.length] = -1.0
@@ -113,9 +137,19 @@ function initVertexBuffers(gl) {
 	buf[buf.length] = 0.0
 	buf[buf.length] = 0.0
 	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0//0
-	buf[buf.length] = 0.0//1
-
+	if(b===true)
+	{
+		if (buff)
+		{
+			buf[buf.length] = buff[2]
+			buf[buf.length] = buff[3]
+		}
+	}
+	else
+	{
+		buf[buf.length] = 1.0//0
+		buf[buf.length] = 0.0//1	
+	}
 	buf[buf.length] = 1.0
 	buf[buf.length] = 1.0
 	buf[buf.length] = 0.0
@@ -123,9 +157,19 @@ function initVertexBuffers(gl) {
 	buf[buf.length] = 0.0
 	buf[buf.length] = 0.0
 	buf[buf.length] = 1.0
-	buf[buf.length] = 0.0//1
-	buf[buf.length] = 1.0//0
-
+	if(b===true)
+	{
+		if (buff)
+		{
+			buf[buf.length] = buff[4]
+			buf[buf.length] = buff[5]
+		}
+	}
+	else
+	{
+		buf[buf.length] = 0.0//1
+		buf[buf.length] = 1.0//0	
+	}
 	buf[buf.length] = 1.0
 	buf[buf.length] = 1.0
 	buf[buf.length] = 0.0
@@ -133,9 +177,20 @@ function initVertexBuffers(gl) {
 	buf[buf.length] = 0.0
 	buf[buf.length] = 0.0
 	buf[buf.length] = 1.0
-	buf[buf.length] = 0.0//1
-	buf[buf.length] = 1.0//0
-
+	if(b===true)
+	{
+		if (buff)
+		{
+			buf[buf.length] = buff[6]
+			buf[buf.length] = buff[7]
+		}
+	}
+	else
+	{
+		buf[buf.length] = 0.0//1
+		buf[buf.length] = 1.0//0
+		
+	}
 	buf[buf.length] = -1.0
 	buf[buf.length] = -1.0
 	buf[buf.length] = 0.0
@@ -143,9 +198,19 @@ function initVertexBuffers(gl) {
 	buf[buf.length] = 0.0
 	buf[buf.length] = 0.0
 	buf[buf.length] = 1.0
-	buf[buf.length] = 1.0//0 
-	buf[buf.length] = 0.0//1
-
+	if(b===true)
+	{
+		if (buff)
+		{
+			buf[buf.length] = buff[8] 
+			buf[buf.length] = buff[9]
+		}
+	}
+	else
+	{
+		buf[buf.length] = 1.0//0 
+		buf[buf.length] = 0.0//1	
+	}
 	buf[buf.length] = 1.0
 	buf[buf.length] = -1.0
 	buf[buf.length] = 0.0
@@ -153,9 +218,19 @@ function initVertexBuffers(gl) {
 	buf[buf.length] = 0.0
 	buf[buf.length] = 0.0
 	buf[buf.length] = 1.0
-	buf[buf.length] = 0.0//1
-	buf[buf.length] = 0.0//1
-
+	if(b===true)
+	{
+		if (buff)
+		{
+			buf[buf.length] = buff[10]
+			buf[buf.length] = buff[11]
+		}
+	}
+	else
+	{
+		buf[buf.length] = 0.0//1
+		buf[buf.length] = 0.0//1	
+	}
 	var vertexTexCoordBuffer = gl.createBuffer();
 	if (!vertexTexCoordBuffer) {
 		console.log('Failed to create the buffer object');
@@ -313,6 +388,7 @@ function loadTexture(gl, textureID, u_SamplerID, imageID, numID) {
 }
 function draw(gl,modelMatrix, u_ModelMatrix, u_ProjMatrix, projMatrix, nf,gl2,  modelMatrix2, u_ModelMatrix2, u_ProjMatrix2, projMatrix2, nf2) {
 
+	initVertexBuffers(gl2,true);
 	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 	gl.enable(gl.DEPTH_TEST);
 	gl.uniformMatrix4fv(u_ProjMatrix, false, projMatrix.elements);
@@ -350,7 +426,9 @@ function draw(gl,modelMatrix, u_ModelMatrix, u_ProjMatrix, projMatrix, nf,gl2,  
             }
         }
 
-        console.log(`Количество различий: ${diffCount}`);
+        //console.log(`Количество различий: ${diffCount}`);
+		if(diffCount==0)
+			console.log(buff);
 	}
 
 }
