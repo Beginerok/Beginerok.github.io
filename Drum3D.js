@@ -1396,6 +1396,7 @@ function LoadDrum(gl) {
 		paths5 = "https://s6.imgcdn.dev/YYHLz8.png";
 		paths6 = "https://s6.imgcdn.dev/YYHbt2.png";
 		paths7 = "https://s6.imgcdn.dev/YYHmYi.png";
+		pathscard = "https://s6.imgcdn.dev/YYXIuN.png";
 
 	texturesdrum1 = gl.createTexture();
 	u_Sampler1 = gl.getUniformLocation(gl.program, 'u_Sampler');
@@ -1462,7 +1463,7 @@ function LoadDrum(gl) {
 	images7.onload = function () { loadTexture(gl, texturesdrum7, u_Sampler7, images7, 7); };
 	images7.src = paths7;
 
-	/*
+	
 	texturescard = gl.createTexture();
 	u_Samplercard = gl.getUniformLocation(gl.program, 'u_Sampler');
 	imagescard = new Image();
@@ -1470,7 +1471,7 @@ function LoadDrum(gl) {
 	imagescard.crossOrigin = "anonymous";
 	imagescard.onload = function () { loadTexture(gl, texturescard, u_Samplercard, imagescard, 8); };
 	imagescard.src = pathscard;
-	*/
+	
 }
 function loadTexture(gl, textureID, u_SamplerID, imageID, numID) {
 	gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
