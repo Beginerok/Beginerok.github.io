@@ -26,6 +26,7 @@ var startRotate = [0, 0, 0, 0, 0];
 var textures1, textures2, textures3, textures4, textures5, textures6, textures7, textures8, Drums = [], Tex = [],texturescard;
 var ready1 = false, ready2 = false, ready3 = false, ready4 = false, ready5 = false, ready6 = false, ready7 = false, ready8 = false;
 var n =  2;
+var bbuf=[]
 var flag_win = [
 	false,
 	false,
@@ -1312,17 +1313,22 @@ function initVertexBuffers(gl) {
 	buf[buf.length] = 0.0
 	buf[buf.length] = 0.0
 
-	//console.log(buf.length)
+	console.log(buf.length)
 
+	//console.log("---")
 	for (var i=0;i<bufx2.length;i++)
+	{
 		buf.push(bufx2[i])
+		//console.log(buf.length)
+	}
+	//console.log("---")
 	var vertexTexCoordBuffer = gl.createBuffer();
 	if (!vertexTexCoordBuffer) {
 		console.log('Failed to create the buffer object');
 		return -1;
 	}
 	gl.bindBuffer(gl.ARRAY_BUFFER, vertexTexCoordBuffer);
-	var bbuf = new Float32Array(buf)
+	bbuf = new Float32Array(buf)
 	gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
 	var FSIZE = bbuf.BYTES_PER_ELEMENT;
 	var a_Position = gl.getAttribLocation(gl.program, 'a_Position');
@@ -1613,7 +1619,6 @@ function loadTexture(gl, textureID, u_SamplerID, imageID, numID) {
 	}
 }
 function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMatrix, nf) {
-	initVertexBuffers(gl)
 	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 	gl.enable(gl.DEPTH_TEST);
 	if(!x_2)
@@ -1701,7 +1706,119 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 	}
 	else
 	{
+		
 		gl.bindTexture(gl.TEXTURE_2D, texturescard);
+		
+		bbuf[4570] = cards[1].xx
+		bbuf[4571] = cards[1].y
+
+		bbuf[4579] = cards[1].xx
+		bbuf[4580] = cards[1].yy
+		
+		bbuf[4588] = cards[1].x
+		bbuf[4589] = cards[1].y
+		
+		bbuf[4597] = cards[1].x
+		bbuf[4598] = cards[1].y
+		
+		bbuf[4606] = cards[1].xx
+		bbuf[4607] = cards[1].yy
+		
+		bbuf[4615] = cards[1].x
+		bbuf[4616] = cards[1].yy
+		
+		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
 		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141, 6);
+		
+		gl.bindTexture(gl.TEXTURE_2D, texturescard);
+		
+		bbuf[4624] = cards[12].xx
+		bbuf[4625] = cards[12].y
+
+		bbuf[4633] = cards[12].xx
+		bbuf[4634] = cards[12].yy
+		
+		bbuf[4642] = cards[12].x
+		bbuf[4643] = cards[12].y
+		
+		bbuf[4651] = cards[12].x
+		bbuf[4652] = cards[12].y
+		
+		bbuf[4660] = cards[12].xx
+		bbuf[4661] = cards[12].yy
+		
+		bbuf[4669] = cards[12].x
+		bbuf[4670] = cards[12].yy
+		
+		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
+		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141+6, 6);
+		
+		gl.bindTexture(gl.TEXTURE_2D, texturescard);
+		
+		bbuf[4678] = cards[12].xx
+		bbuf[4679] = cards[12].y
+
+		bbuf[4687] = cards[12].xx
+		bbuf[4688] = cards[12].yy
+		
+		bbuf[4696] = cards[12].x
+		bbuf[4697] = cards[12].y
+		
+		bbuf[4705] = cards[12].x
+		bbuf[4706] = cards[12].y
+		
+		bbuf[4714] = cards[12].xx
+		bbuf[4715] = cards[12].yy
+		
+		bbuf[4723] = cards[12].x
+		bbuf[4724] = cards[12].yy
+		
+		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
+		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141+12, 6);
+		
+		gl.bindTexture(gl.TEXTURE_2D, texturescard);
+		bbuf[4732] = cards[12].xx
+		bbuf[4733] = cards[12].y
+
+		bbuf[4741] = cards[12].xx
+		bbuf[4742] = cards[12].yy
+		
+		bbuf[4750] = cards[12].x
+		bbuf[4751] = cards[12].y
+		
+		bbuf[4759] = cards[12].x
+		bbuf[4760] = cards[12].y
+		
+		bbuf[4768] = cards[12].xx
+		bbuf[4769] = cards[12].yy
+		
+		bbuf[4777] = cards[12].x
+		bbuf[4778] = cards[12].yy
+		
+		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
+		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141+18, 6);
+		
+		gl.bindTexture(gl.TEXTURE_2D, texturescard);
+		
+		bbuf[4786] = cards[12].xx
+		bbuf[4787] = cards[12].y
+
+		bbuf[4795] = cards[12].xx
+		bbuf[4796] = cards[12].yy
+		
+		bbuf[4804] = cards[12].x
+		bbuf[4805] = cards[12].y
+		
+		bbuf[4813] = cards[12].x
+		bbuf[4814] = cards[12].y
+		
+		bbuf[4822] = cards[12].xx
+		bbuf[4823] = cards[12].yy
+		
+		bbuf[4831] = cards[12].x
+		bbuf[4832] = cards[12].yy
+		
+		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
+		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141+24, 6);
 	}
 }
