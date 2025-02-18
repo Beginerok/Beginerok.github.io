@@ -22,7 +22,7 @@ x=0.994-(0.0705+0.006)*i
 y=0.945-(0.22+0.004)*j
 cards[13*j+i] = new card(i,j==0?'P':j==1?'K':j==2?'B':'C',13*j+i,x,xx,y,yy)
 
-bufx2[bufx2.length] = -0.9+(0.3+0.05)*i
+bufx2[bufx2.length] = -0.8+(0.3+0.05)*i
 bufx2[bufx2.length] = 0.75
 bufx2[bufx2.length] = 2.0
 bufx2[bufx2.length] = 0.0
@@ -32,7 +32,7 @@ bufx2[bufx2.length] = 1.0
 bufx2[bufx2.length] = xx//x
 bufx2[bufx2.length] = y
 
-bufx2[bufx2.length] = -0.9+(0.3+0.05)*i
+bufx2[bufx2.length] = -0.8+(0.3+0.05)*i
 bufx2[bufx2.length] = -0.75
 bufx2[bufx2.length] = 2.0
 bufx2[bufx2.length] = 0.0
@@ -42,7 +42,7 @@ bufx2[bufx2.length] = 1.0
 bufx2[bufx2.length] = xx//x
 bufx2[bufx2.length] = yy//0
 
-bufx2[bufx2.length] = -0.7+(0.3+0.05)*i
+bufx2[bufx2.length] = -0.6+(0.3+0.05)*i
 bufx2[bufx2.length] = 0.75
 bufx2[bufx2.length] = 2.0
 bufx2[bufx2.length] = 0.0
@@ -52,7 +52,7 @@ bufx2[bufx2.length] = 1.0
 bufx2[bufx2.length] = x//xx
 bufx2[bufx2.length] = y//1
 
-bufx2[bufx2.length] = -0.7+(0.3+0.05)*i
+bufx2[bufx2.length] = -0.6+(0.3+0.05)*i
 bufx2[bufx2.length] = 0.75
 bufx2[bufx2.length] = 2.0
 bufx2[bufx2.length] = 0.0
@@ -62,7 +62,7 @@ bufx2[bufx2.length] = 1.0
 bufx2[bufx2.length] = x//xx
 bufx2[bufx2.length] = y//1
 
-bufx2[bufx2.length] = -0.9+(0.3+0.05)*i
+bufx2[bufx2.length] = -0.8+(0.3+0.05)*i
 bufx2[bufx2.length] = -0.75
 bufx2[bufx2.length] = 2.0
 bufx2[bufx2.length] = 0.0
@@ -72,7 +72,7 @@ bufx2[bufx2.length] = 1.0
 bufx2[bufx2.length] = xx//x
 bufx2[bufx2.length] = yy//0
 
-bufx2[bufx2.length] = -0.7+(0.3+0.05)*i
+bufx2[bufx2.length] = -0.6+(0.3+0.05)*i
 bufx2[bufx2.length] = -0.75
 bufx2[bufx2.length] = 2.0
 bufx2[bufx2.length] = 0.0

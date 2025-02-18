@@ -336,7 +336,7 @@ function main() {
 		console.log('Failed to intialize the texture.');
 		return;
 	}
-	gl.clearColor(0.0, 0.0, 0.0, 1.0);
+	gl.clearColor(0.0, 1.0, 0.0, 1.0);
 
 	var tick = function () {
 		currentAngle = animate(currentAngle);
