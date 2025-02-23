@@ -285,6 +285,7 @@ var win = new Audio('win.mp3');
 var Credits = document.getElementById("credits").textContent
 var Win = 0;
 var total_bet = document.getElementById("total_bet").textContent
+var Cards=[];
 //console.log(credits)
 function main() {
 	/*
@@ -353,7 +354,10 @@ function main() {
 	tick();
 	canvas.onmousedown = function (ev) { click(ev, gl, canvas, currentAngle); };
 	buttonSpin.onclick = function (ev) { click(ev, gl, canvas, currentAngle); };
-	buttonRisk.onclick = function (ev) { x_2 = !x_2; };
+	buttonRisk.onclick = function (ev) { x_2 = !x_2; Cards =[];
+		for (var i=0;i<5;i++)
+			Cards.push(random(0,51));
+	};
 	var range = document.getElementById("quality");
 	range.onchange =function(value){
 		n = parseInt(range.value,10);
@@ -361,7 +365,9 @@ function main() {
 		//console.log("n="+n);
 	}
 }
-
+const random = (min, max) => {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 function checkwin() {
 	if (!startRotate[0] && !startRotate[1] && !startRotate[2] && !startRotate[3] && !startRotate[4]) {
 		if (Drums[0] == Drums[6] && Drums[6] == Drums[12] && Drums[12] == Drums[18] && Drums[18] == Drums[24]) {
@@ -1406,7 +1412,8 @@ function LoadDrum(gl) {
 		paths5 = "https://s6.imgcdn.dev/YYHLz8.png";
 		paths6 = "https://s6.imgcdn.dev/YYHbt2.png";
 		paths7 = "https://s6.imgcdn.dev/YYHmYi.png";
-		pathscard = "https://s6.imgcdn.dev/YYXIuN.png";
+		//pathscard = "https://s6.imgcdn.dev/YYXIuN.png";
+		pathscard = "https://s6.imgcdn.dev/YhN8z8.png";
 
 	texturesdrum1 = gl.createTexture();
 	u_Sampler1 = gl.getUniformLocation(gl.program, 'u_Sampler');
@@ -1709,114 +1716,114 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 		
 		gl.bindTexture(gl.TEXTURE_2D, texturescard);
 		
-		bbuf[4570] = cards[1].xx
-		bbuf[4571] = cards[1].y
+		bbuf[4570] = cards[Cards[0]].xx
+		bbuf[4571] = cards[Cards[0]].y
 
-		bbuf[4579] = cards[1].xx
-		bbuf[4580] = cards[1].yy
+		bbuf[4579] = cards[Cards[0]].xx
+		bbuf[4580] = cards[Cards[0]].yy
 		
-		bbuf[4588] = cards[1].x
-		bbuf[4589] = cards[1].y
+		bbuf[4588] = cards[Cards[0]].x
+		bbuf[4589] = cards[Cards[0]].y
 		
-		bbuf[4597] = cards[1].x
-		bbuf[4598] = cards[1].y
+		bbuf[4597] = cards[Cards[0]].x
+		bbuf[4598] = cards[Cards[0]].y
 		
-		bbuf[4606] = cards[1].xx
-		bbuf[4607] = cards[1].yy
+		bbuf[4606] = cards[Cards[0]].xx
+		bbuf[4607] = cards[Cards[0]].yy
 		
-		bbuf[4615] = cards[1].x
-		bbuf[4616] = cards[1].yy
+		bbuf[4615] = cards[Cards[0]].x
+		bbuf[4616] = cards[Cards[0]].yy
 		
 		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
 		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141, 6);
 		
 		gl.bindTexture(gl.TEXTURE_2D, texturescard);
 		
-		bbuf[4624] = cards[12].xx
-		bbuf[4625] = cards[12].y
+		bbuf[4624] = cards[Cards[1]].xx
+		bbuf[4625] = cards[Cards[1]].y
 
-		bbuf[4633] = cards[12].xx
-		bbuf[4634] = cards[12].yy
+		bbuf[4633] = cards[Cards[1]].xx
+		bbuf[4634] = cards[Cards[1]].yy
 		
-		bbuf[4642] = cards[12].x
-		bbuf[4643] = cards[12].y
+		bbuf[4642] = cards[Cards[1]].x
+		bbuf[4643] = cards[Cards[1]].y
 		
-		bbuf[4651] = cards[12].x
-		bbuf[4652] = cards[12].y
+		bbuf[4651] = cards[Cards[1]].x
+		bbuf[4652] = cards[Cards[1]].y
 		
-		bbuf[4660] = cards[12].xx
-		bbuf[4661] = cards[12].yy
+		bbuf[4660] = cards[Cards[1]].xx
+		bbuf[4661] = cards[Cards[1]].yy
 		
-		bbuf[4669] = cards[12].x
-		bbuf[4670] = cards[12].yy
+		bbuf[4669] = cards[Cards[1]].x
+		bbuf[4670] = cards[Cards[1]].yy
 		
 		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
 		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141+6, 6);
 		
 		gl.bindTexture(gl.TEXTURE_2D, texturescard);
 		
-		bbuf[4678] = cards[12].xx
-		bbuf[4679] = cards[12].y
+		bbuf[4678] = cards[Cards[2]].xx
+		bbuf[4679] = cards[Cards[2]].y
 
-		bbuf[4687] = cards[12].xx
-		bbuf[4688] = cards[12].yy
+		bbuf[4687] = cards[Cards[2]].xx
+		bbuf[4688] = cards[Cards[2]].yy
 		
-		bbuf[4696] = cards[12].x
-		bbuf[4697] = cards[12].y
+		bbuf[4696] = cards[Cards[2]].x
+		bbuf[4697] = cards[Cards[2]].y
 		
-		bbuf[4705] = cards[12].x
-		bbuf[4706] = cards[12].y
+		bbuf[4705] = cards[Cards[2]].x
+		bbuf[4706] = cards[Cards[2]].y
 		
-		bbuf[4714] = cards[12].xx
-		bbuf[4715] = cards[12].yy
+		bbuf[4714] = cards[Cards[2]].xx
+		bbuf[4715] = cards[Cards[2]].yy
 		
-		bbuf[4723] = cards[12].x
-		bbuf[4724] = cards[12].yy
+		bbuf[4723] = cards[Cards[2]].x
+		bbuf[4724] = cards[Cards[2]].yy
 		
 		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
 		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141+12, 6);
 		
 		gl.bindTexture(gl.TEXTURE_2D, texturescard);
-		bbuf[4732] = cards[12].xx
-		bbuf[4733] = cards[12].y
+		bbuf[4732] = cards[Cards[3]].xx
+		bbuf[4733] = cards[Cards[3]].y
 
-		bbuf[4741] = cards[12].xx
-		bbuf[4742] = cards[12].yy
+		bbuf[4741] = cards[Cards[3]].xx
+		bbuf[4742] = cards[Cards[3]].yy
 		
-		bbuf[4750] = cards[12].x
-		bbuf[4751] = cards[12].y
+		bbuf[4750] = cards[Cards[3]].x
+		bbuf[4751] = cards[Cards[3]].y
 		
-		bbuf[4759] = cards[12].x
-		bbuf[4760] = cards[12].y
+		bbuf[4759] = cards[Cards[3]].x
+		bbuf[4760] = cards[Cards[3]].y
 		
-		bbuf[4768] = cards[12].xx
-		bbuf[4769] = cards[12].yy
+		bbuf[4768] = cards[Cards[3]].xx
+		bbuf[4769] = cards[Cards[3]].yy
 		
-		bbuf[4777] = cards[12].x
-		bbuf[4778] = cards[12].yy
+		bbuf[4777] = cards[Cards[3]].x
+		bbuf[4778] = cards[Cards[3]].yy
 		
 		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
 		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141+18, 6);
 		
 		gl.bindTexture(gl.TEXTURE_2D, texturescard);
 		
-		bbuf[4786] = cards[12].xx
-		bbuf[4787] = cards[12].y
+		bbuf[4786] = cards[Cards[4]].xx
+		bbuf[4787] = cards[Cards[4]].y
 
-		bbuf[4795] = cards[12].xx
-		bbuf[4796] = cards[12].yy
+		bbuf[4795] = cards[Cards[4]].xx
+		bbuf[4796] = cards[Cards[4]].yy
 		
-		bbuf[4804] = cards[12].x
-		bbuf[4805] = cards[12].y
+		bbuf[4804] = cards[Cards[4]].x
+		bbuf[4805] = cards[Cards[4]].y
 		
-		bbuf[4813] = cards[12].x
-		bbuf[4814] = cards[12].y
+		bbuf[4813] = cards[Cards[4]].x
+		bbuf[4814] = cards[Cards[4]].y
 		
-		bbuf[4822] = cards[12].xx
-		bbuf[4823] = cards[12].yy
+		bbuf[4822] = cards[Cards[4]].xx
+		bbuf[4823] = cards[Cards[4]].yy
 		
-		bbuf[4831] = cards[12].x
-		bbuf[4832] = cards[12].yy
+		bbuf[4831] = cards[Cards[4]].x
+		bbuf[4832] = cards[Cards[4]].yy
 		
 		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
 		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141+24, 6);
