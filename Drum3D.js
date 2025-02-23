@@ -1330,6 +1330,66 @@ function initVertexBuffers(gl) {
 	}
 	
 	console.log(buf.length)
+	buf[buf.length] = -1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0//0
+	buf[buf.length] = 1.0//0
+
+	buf[buf.length] = -1.0
+	buf[buf.length] = -1.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0//0
+	buf[buf.length] = 0.0//1
+
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 0.0//1
+	buf[buf.length] = 1.0//0
+
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 0.0//1
+	buf[buf.length] = 1.0//0
+
+	buf[buf.length] = -1.0
+	buf[buf.length] = -1.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 1.0//0 
+	buf[buf.length] = 0.0//1
+
+	buf[buf.length] = 1.0
+	buf[buf.length] = -1.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 0.0
+	buf[buf.length] = 1.0
+	buf[buf.length] = 0.0//1
+	buf[buf.length] = 0.0//1
+	console.log(buf.length)
 
 	//console.log("---")
 	var vertexTexCoordBuffer = gl.createBuffer();
@@ -1720,26 +1780,26 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 		
 		gl.bindTexture(gl.TEXTURE_2D, texturescard);
 		
-		bbuf[3247] = 0.0
-		bbuf[3248] = 0.23
+		bbuf[7378] = 0.0
+		bbuf[7379] = 0.23
 
-		bbuf[3256] = 0.0
-		bbuf[3257] = 0.78
+		bbuf[7387] = 0.0
+		bbuf[7388] = 0.78
 		
-		bbuf[3265] = 1.0
-		bbuf[3266] = 0.23
+		bbuf[7396] = 1.0
+		bbuf[7397] = 0.23
 		
-		bbuf[3274] = 1.0
-		bbuf[3275] = 0.23
+		bbuf[7405] = 1.0
+		bbuf[7406] = 0.23
 		
-		bbuf[3283] = 0.0
-		bbuf[3284] = 0.78
+		bbuf[7414] = 0.0
+		bbuf[7415] = 0.78
 		
-		bbuf[3292] = 1.0
-		bbuf[3293] = 0.78
+		bbuf[7423] = 1.0
+		bbuf[7424] = 0.78
 		
 		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
-		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n, 6);
+		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141+6*52, 6);
 		
 		
 
