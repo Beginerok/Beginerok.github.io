@@ -286,6 +286,7 @@ var Credits = document.getElementById("credits").textContent
 var Win = 0;
 var total_bet = document.getElementById("total_bet").textContent
 var Cards=[];
+var hide=true
 //console.log(credits)
 function main() {
 	/*
@@ -1148,7 +1149,7 @@ function initVertexBuffers(gl) {
 		}
 		jIter++;
 	}
-	//console.log(buf.length)
+	console.log(buf.length)
 	//console.log("comb-",gl.MAX_COMBINED_TEXTURE_IMAGE_UNITS)
 	buf[buf.length] = -1.0
 	buf[buf.length] = 1.0
@@ -1327,6 +1328,9 @@ function initVertexBuffers(gl) {
 		buf.push(bufx2[i])
 		//console.log(buf.length)
 	}
+	
+	console.log(buf.length)
+
 	//console.log("---")
 	var vertexTexCoordBuffer = gl.createBuffer();
 	if (!vertexTexCoordBuffer) {
@@ -1716,6 +1720,29 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 		
 		gl.bindTexture(gl.TEXTURE_2D, texturescard);
 		
+		bbuf[3247] = 0.0
+		bbuf[3248] = 0.23
+
+		bbuf[3256] = 0.0
+		bbuf[3257] = 0.78
+		
+		bbuf[3265] = 1.0
+		bbuf[3266] = 0.23
+		
+		bbuf[3274] = 1.0
+		bbuf[3275] = 0.23
+		
+		bbuf[3283] = 0.0
+		bbuf[3284] = 0.78
+		
+		bbuf[3292] = 1.0
+		bbuf[3293] = 0.78
+		
+		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
+		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n, 6);
+		
+		
+
 		bbuf[4570] = cards[Cards[0]].xx
 		bbuf[4571] = cards[Cards[0]].y
 
@@ -1738,7 +1765,10 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141, 6);
 		
 		gl.bindTexture(gl.TEXTURE_2D, texturescard);
+		if(!hide)
+			{
 		
+				
 		bbuf[4624] = cards[Cards[1]].xx
 		bbuf[4625] = cards[Cards[1]].y
 
@@ -1756,12 +1786,34 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 		
 		bbuf[4669] = cards[Cards[1]].x
 		bbuf[4670] = cards[Cards[1]].yy
+			}
+			else{
+				
+		bbuf[4624] = 0.0
+		bbuf[4625] = 0.22
+
+		bbuf[4633] = 0.0
+		bbuf[4634] = 0.01
+		
+		bbuf[4642] = 0.151
+		bbuf[4643] = 0.22
+		
+		bbuf[4651] = 0.151
+		bbuf[4652] = 0.22
+		
+		bbuf[4660] = 0.0
+		bbuf[4661] = 0.01
+		
+		bbuf[4669] = 0.151
+		bbuf[4670] = 0.01
+			}
 		
 		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
 		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141+6, 6);
 		
 		gl.bindTexture(gl.TEXTURE_2D, texturescard);
-		
+		if(!hide)
+			{
 		bbuf[4678] = cards[Cards[2]].xx
 		bbuf[4679] = cards[Cards[2]].y
 
@@ -1779,11 +1831,33 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 		
 		bbuf[4723] = cards[Cards[2]].x
 		bbuf[4724] = cards[Cards[2]].yy
+			}
+			else{
+				
+		bbuf[4678] = 0.0
+		bbuf[4679] = 0.22
+
+		bbuf[4687] = 0.0
+		bbuf[4688] = 0.01
 		
+		bbuf[4696] = 0.151
+		bbuf[4697] = 0.22
+		
+		bbuf[4705] = 0.151
+		bbuf[4706] = 0.22
+		
+		bbuf[4714] = 0.0
+		bbuf[4715] = 0.01
+		
+		bbuf[4723] = 0.151
+		bbuf[4724] = 0.01
+			}
 		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
 		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141+12, 6);
 		
 		gl.bindTexture(gl.TEXTURE_2D, texturescard);
+		if(!hide)
+			{
 		bbuf[4732] = cards[Cards[3]].xx
 		bbuf[4733] = cards[Cards[3]].y
 
@@ -1801,12 +1875,34 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 		
 		bbuf[4777] = cards[Cards[3]].x
 		bbuf[4778] = cards[Cards[3]].yy
+			}
+			else{
+
+				bbuf[4732] = 0.0
+				bbuf[4733] = 0.22
+		
+				bbuf[4741] = 0.0
+				bbuf[4742] = 0.01
+				
+				bbuf[4750] = 0.151
+				bbuf[4751] = 0.22
+				
+				bbuf[4759] = 0.151
+				bbuf[4760] = 0.22
+				
+				bbuf[4768] = 0.0
+				bbuf[4769] = 0.01
+				
+				bbuf[4777] = 0.151
+				bbuf[4778] = 0.01
+			}
 		
 		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
 		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141+18, 6);
 		
 		gl.bindTexture(gl.TEXTURE_2D, texturescard);
-		
+		if(!hide)
+			{
 		bbuf[4786] = cards[Cards[4]].xx
 		bbuf[4787] = cards[Cards[4]].y
 
@@ -1824,6 +1920,26 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 		
 		bbuf[4831] = cards[Cards[4]].x
 		bbuf[4832] = cards[Cards[4]].yy
+			}else{
+				
+		bbuf[4786] = 0.0
+		bbuf[4787] = 0.22
+
+		bbuf[4795] = 0.0
+		bbuf[4796] = 0.01
+		
+		bbuf[4804] = 0.151
+		bbuf[4805] = 0.22
+		
+		bbuf[4813] = 0.151
+		bbuf[4814] = 0.22
+		
+		bbuf[4822] = 0.0
+		bbuf[4823] = 0.01
+		
+		bbuf[4831] = 0.151
+		bbuf[4832] = 0.01
+			}
 		
 		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
 		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141+24, 6);
