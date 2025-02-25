@@ -282,11 +282,14 @@ var c6 = {
 var spin = new Audio('spin.mp3');
 var stop = new Audio('stop.mp3');
 var win = new Audio('win.mp3');
+var tonus = new Audio('tonus.mp3');
 var Credits = document.getElementById("credits").textContent
 var Win = 0;
 var total_bet = document.getElementById("total_bet").textContent
 var Cards=[];
 var hide=true
+var Take=false
+var Risk=false
 //console.log(credits)
 function main() {
 	/*
@@ -353,12 +356,359 @@ function main() {
 		requestAnimationFrame(tick, canvas);
 	};
 	tick();
-	canvas.onmousedown = function (ev) { click(ev, gl, canvas, currentAngle); };
-	buttonSpin.onclick = function (ev) { click(ev, gl, canvas, currentAngle); };
-	buttonRisk.onclick = function (ev) { x_2 = !x_2; Cards =[];
-		for (var i=0;i<5;i++)
-			Cards.push(random(0,51));
+	canvas.onmousedown = function (ev) { 
+		if(!x_2) 
+			click(ev, gl, canvas, currentAngle);
+		};
+	buttonSpin.onclick = function (ev) { 
+		if(!x_2) 
+			click(ev, gl, canvas, currentAngle);
+		else
+		{
+			var k =2;
+			hide=false;
+			setTimeout(() => { 
+			hide = true;
+			if(cards[Cards[0]].value<cards[Cards[k]].value)
+			{
+				//alert(`${cards[Cards[0]].value}<${cards[Cards[k]].value}`);
+				Win*=2;
+				document.getElementById("win").textContent = Win;
+				Cards =[];
+				for (var i=0;i<5;i++)
+					Cards.push(random(0,51));
+			}
+			else if (cards[Cards[0]].value==cards[Cards[k]].value)
+			{
+				//alert(`${cards[Cards[0]].value}==${cards[Cards[k]].value}`);
+				Cards =[];
+				for (var i=0;i<5;i++)
+					Cards.push(random(0,51));
+			}
+			else
+			{
+				//alert(`${cards[Cards[0]].value}>${cards[Cards[k]].value}`);
+				tonus.pause();
+				tonus.currentTime=0;
+				Take = true;
+				Credits += Win;
+				document.getElementById("credits").textContent = Credits;
+				Win = 0;
+				document.getElementById("win").textContent = Win;
+				flag_win[0] = false;
+				flag_win[1] = false;
+				flag_win[2] = false;
+				flag_win[3] = false;
+				flag_win[4] = false;
+				flag_win[5] = false;
+				flag_win[6] = false;
+				flag_win[7] = false;
+				flag_win[8] = false;
+				flag_win[9] = false;
+				flag_win[10] = false;
+				flag_win[11] = false;
+				flag_win[12] = false;
+				flag_win[13] = false;
+				flag_win[14] = false;
+				flag_win[15] = false;
+				flag_win[16] = false;
+				flag_win[17] = false;
+				flag_win[18] = false;
+				win.pause();
+				win.currentTime=0;
+				Risk = false;
+				x_2=!x_2;
+				document.getElementById("buttonHelp").innerHTML = "Help";
+				document.getElementById("buttonTake").innerHTML = "Take";
+				document.getElementById("buttonBet").innerHTML = "Bet";
+				document.getElementById("buttonSpin").innerHTML = "Spin";
+			}
+		},2000)
+		} };
+	buttonRisk.onclick = function (ev) { 
+		if(Win>0 && !x_2)
+		{
+			x_2 = !x_2; 
+			Cards =[];
+			for (var i=0;i<5;i++)
+				Cards.push(random(0,51));
+			Risk = true;
+			win.pause();
+			win.currentTime=0;
+			tonus.play();
+			document.getElementById("buttonHelp").innerHTML = "Take";
+			document.getElementById("buttonTake").innerHTML = "Risk";
+			document.getElementById("buttonBet").innerHTML = "Risk";
+			document.getElementById("buttonSpin").innerHTML = "Risk";
+		}
+		else if(x_2)
+		{
+			var k = 4;
+			hide=false;
+			setTimeout(() => { 
+			hide = true;
+			if(cards[Cards[0]].value<cards[Cards[k]].value)
+			{
+				//alert(`${cards[Cards[0]].value}<${cards[Cards[k]].value}`);
+				Win*=2;
+				document.getElementById("win").textContent = Win;
+				Cards =[];
+				for (var i=0;i<5;i++)
+					Cards.push(random(0,51));
+			}
+			else if (cards[Cards[0]].value==cards[Cards[k]].value)
+			{
+				//alert(`${cards[Cards[0]].value}==${cards[Cards[k]].value}`);
+				Cards =[];
+				for (var i=0;i<5;i++)
+					Cards.push(random(0,51));
+			}
+			else
+			{
+				//alert(`${cards[Cards[0]].value}>${cards[Cards[k]].value}`);
+				tonus.pause();
+				tonus.currentTime=0;
+				Take = true;
+				Credits += Win;
+				document.getElementById("credits").textContent = Credits;
+				Win = 0;
+				document.getElementById("win").textContent = Win;
+				flag_win[0] = false;
+				flag_win[1] = false;
+				flag_win[2] = false;
+				flag_win[3] = false;
+				flag_win[4] = false;
+				flag_win[5] = false;
+				flag_win[6] = false;
+				flag_win[7] = false;
+				flag_win[8] = false;
+				flag_win[9] = false;
+				flag_win[10] = false;
+				flag_win[11] = false;
+				flag_win[12] = false;
+				flag_win[13] = false;
+				flag_win[14] = false;
+				flag_win[15] = false;
+				flag_win[16] = false;
+				flag_win[17] = false;
+				flag_win[18] = false;
+				win.pause();
+				win.currentTime=0;
+				Risk = false;
+				x_2=!x_2;
+				document.getElementById("buttonHelp").innerHTML = "Help";
+				document.getElementById("buttonTake").innerHTML = "Take";
+				document.getElementById("buttonBet").innerHTML = "Bet";
+				document.getElementById("buttonSpin").innerHTML = "Spin";
+			}
+		},2000)
+		}
 	};
+	buttonHelp.onclick = function(ev)
+	{
+		if(x_2)
+		{
+			tonus.pause();
+			tonus.currentTime=0;
+			Take = true;
+			Credits += Win;
+			document.getElementById("credits").textContent = Credits;
+			Win = 0;
+			document.getElementById("win").textContent = Win;
+			flag_win[0] = false;
+			flag_win[1] = false;
+			flag_win[2] = false;
+			flag_win[3] = false;
+			flag_win[4] = false;
+			flag_win[5] = false;
+			flag_win[6] = false;
+			flag_win[7] = false;
+			flag_win[8] = false;
+			flag_win[9] = false;
+			flag_win[10] = false;
+			flag_win[11] = false;
+			flag_win[12] = false;
+			flag_win[13] = false;
+			flag_win[14] = false;
+			flag_win[15] = false;
+			flag_win[16] = false;
+			flag_win[17] = false;
+			flag_win[18] = false;
+			win.pause();
+			win.currentTime=0;
+			Risk = false;
+			x_2=!x_2;
+			document.getElementById("buttonHelp").innerHTML = "Help";
+			document.getElementById("buttonTake").innerHTML = "Take";
+			document.getElementById("buttonBet").innerHTML = "Bet";
+			document.getElementById("buttonSpin").innerHTML = "Spin";
+		}
+	}
+	buttonTake.onclick = function(ev){
+		if(!x_2)
+		{
+			Take = true;
+			Credits += Win;
+			document.getElementById("credits").textContent = Credits;
+			Win = 0;
+			document.getElementById("win").textContent = Win;
+			flag_win[0] = false;
+			flag_win[1] = false;
+			flag_win[2] = false;
+			flag_win[3] = false;
+			flag_win[4] = false;
+			flag_win[5] = false;
+			flag_win[6] = false;
+			flag_win[7] = false;
+			flag_win[8] = false;
+			flag_win[9] = false;
+			flag_win[10] = false;
+			flag_win[11] = false;
+			flag_win[12] = false;
+			flag_win[13] = false;
+			flag_win[14] = false;
+			flag_win[15] = false;
+			flag_win[16] = false;
+			flag_win[17] = false;
+			flag_win[18] = false;
+			win.pause();
+			win.currentTime=0;
+		}
+		else
+		{
+			var k =3;
+			hide=false;
+			
+			setTimeout(() => { 
+				hide = true;
+			if(cards[Cards[0]].value<cards[Cards[k]].value)
+			{
+				//alert(`${cards[Cards[0]].value}<${cards[Cards[k]].value}`);
+				Win*=2;
+				document.getElementById("win").textContent = Win;
+				Cards =[];
+				for (var i=0;i<5;i++)
+					Cards.push(random(0,51));
+			}
+			else if (cards[Cards[0]].value==cards[Cards[k]].value)
+			{
+				//alert(`${cards[Cards[0]].value}==${cards[Cards[k]].value}`);
+				Cards =[];
+				for (var i=0;i<5;i++)
+					Cards.push(random(0,51));
+			}
+			else
+			{
+				//alert(`${cards[Cards[0]].value}>${cards[Cards[k]].value}`);
+				tonus.pause();
+				tonus.currentTime=0;
+				Take = true;
+				Credits += Win;
+				document.getElementById("credits").textContent = Credits;
+				Win = 0;
+				document.getElementById("win").textContent = Win;
+				flag_win[0] = false;
+				flag_win[1] = false;
+				flag_win[2] = false;
+				flag_win[3] = false;
+				flag_win[4] = false;
+				flag_win[5] = false;
+				flag_win[6] = false;
+				flag_win[7] = false;
+				flag_win[8] = false;
+				flag_win[9] = false;
+				flag_win[10] = false;
+				flag_win[11] = false;
+				flag_win[12] = false;
+				flag_win[13] = false;
+				flag_win[14] = false;
+				flag_win[15] = false;
+				flag_win[16] = false;
+				flag_win[17] = false;
+				flag_win[18] = false;
+				win.pause();
+				win.currentTime=0;
+				Risk = false;
+				x_2=!x_2;
+				document.getElementById("buttonHelp").innerHTML = "Help";
+				document.getElementById("buttonTake").innerHTML = "Take";
+				document.getElementById("buttonBet").innerHTML = "Bet";
+				document.getElementById("buttonSpin").innerHTML = "Spin";
+			}
+		},2000)
+		}
+	};
+	buttonBet.onclick = function(ev){
+		if(!x_2)
+		{
+			total_bet+=10;
+			if (total_bet>100)
+				total_bet=10;
+			document.getElementById("total_bet").textContent = total_bet;
+		}
+		else
+		{
+			var k =1;
+			hide=false;
+			setTimeout(() => { 
+			hide = true;
+			if(cards[Cards[0]].value<cards[Cards[k]].value)
+			{
+				//alert(`${cards[Cards[0]].value}<${cards[Cards[k]].value}`);
+				Win*=2;
+				document.getElementById("win").textContent = Win;
+				Cards =[];
+				for (var i=0;i<5;i++)
+					Cards.push(random(0,51));
+			}
+			else if (cards[Cards[0]].value==cards[Cards[k]].value)
+			{
+				//alert(`${cards[Cards[0]].value}==${cards[Cards[k]].value}`);
+				Cards =[];
+				for (var i=0;i<5;i++)
+					Cards.push(random(0,51));
+			}
+			else
+			{
+				//alert(`${cards[Cards[0]].value}>${cards[Cards[k]].value}`);
+				tonus.pause();
+				tonus.currentTime=0;
+				Take = true;
+				Credits += Win;
+				document.getElementById("credits").textContent = Credits;
+				Win = 0;
+				document.getElementById("win").textContent = Win;
+				flag_win[0] = false;
+				flag_win[1] = false;
+				flag_win[2] = false;
+				flag_win[3] = false;
+				flag_win[4] = false;
+				flag_win[5] = false;
+				flag_win[6] = false;
+				flag_win[7] = false;
+				flag_win[8] = false;
+				flag_win[9] = false;
+				flag_win[10] = false;
+				flag_win[11] = false;
+				flag_win[12] = false;
+				flag_win[13] = false;
+				flag_win[14] = false;
+				flag_win[15] = false;
+				flag_win[16] = false;
+				flag_win[17] = false;
+				flag_win[18] = false;
+				win.pause();
+				win.currentTime=0;
+				Risk = false;
+				x_2=!x_2;
+				document.getElementById("buttonHelp").innerHTML = "Help";
+				document.getElementById("buttonTake").innerHTML = "Take";
+				document.getElementById("buttonBet").innerHTML = "Bet";
+				document.getElementById("buttonSpin").innerHTML = "Spin";
+			}
+		},2000)
+		}
+	}
 	var range = document.getElementById("quality");
 	range.onchange =function(value){
 		n = parseInt(range.value,10);
@@ -370,7 +720,7 @@ const random = (min, max) => {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 function checkwin() {
-	if (!startRotate[0] && !startRotate[1] && !startRotate[2] && !startRotate[3] && !startRotate[4]) {
+	if (!startRotate[0] && !startRotate[1] && !startRotate[2] && !startRotate[3] && !startRotate[4] && !Take && !Risk) {
 		if (Drums[0] == Drums[6] && Drums[6] == Drums[12] && Drums[12] == Drums[18] && Drums[18] == Drums[24]) {
 			//console.log("win1")
 			//return true;
@@ -534,6 +884,11 @@ function checkwin() {
 function animate(angle) {
 	if (startRotate[0] || startRotate[1] || startRotate[2] || startRotate[3] || startRotate[4])
 		spin.play();
+	else
+	{
+		spin.pause();
+		spin.currentTime = 0;
+	}
 	for (var i = 0; i < angle.length; i++)
 		if (startRotate[i]) {
 			angle[i] += 30;
@@ -542,6 +897,7 @@ function animate(angle) {
 			var rand = 0;
 			//console.log(angle)
 			if (angle[i] == 900) {
+				Take = false;
 				if (i == 0) {
 					Drums[0] = randed(min, max, rand)
 					Drums[1] = randed(min, max, rand)
