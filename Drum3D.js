@@ -287,7 +287,7 @@ var Credits = document.getElementById("credits").textContent
 var Win = 0;
 var total_bet = document.getElementById("total_bet").textContent
 var Cards=[];
-var hide=true
+var hide=[true,true,true,true,true]
 var Take=false
 var Risk=false
 //console.log(credits)
@@ -366,9 +366,15 @@ function main() {
 		else
 		{
 			var k =2;
-			hide=false;
+			hide[2]=false;
+			setTimeout(() => {
+				for(var i=1;i<5;i++)
+					hide[i] = false;
+			},2000)
 			setTimeout(() => { 
-			hide = true;
+			hide[2] = true;
+			for(var i=1;i<5;i++)
+				hide[i] = true;
 			if(cards[Cards[0]].value<cards[Cards[k]].value)
 			{
 				//alert(`${cards[Cards[0]].value}<${cards[Cards[k]].value}`);
@@ -390,10 +396,10 @@ function main() {
 				//alert(`${cards[Cards[0]].value}>${cards[Cards[k]].value}`);
 				tonus.pause();
 				tonus.currentTime=0;
-				Take = true;
+				Take = true;	
+				Win = 0;
 				Credits += Win;
 				document.getElementById("credits").textContent = Credits;
-				Win = 0;
 				document.getElementById("win").textContent = Win;
 				flag_win[0] = false;
 				flag_win[1] = false;
@@ -423,7 +429,7 @@ function main() {
 				document.getElementById("buttonBet").innerHTML = "Bet";
 				document.getElementById("buttonSpin").innerHTML = "Spin";
 			}
-		},2000)
+		},4000)
 		} };
 	buttonRisk.onclick = function (ev) { 
 		if(Win>0 && !x_2)
@@ -444,9 +450,15 @@ function main() {
 		else if(x_2)
 		{
 			var k = 4;
-			hide=false;
+			hide[4]=false;
+			setTimeout(() => {
+				for(var i=1;i<5;i++)
+					hide[i] = false;
+			},2000)
 			setTimeout(() => { 
-			hide = true;
+			hide[4] = true;
+			for(var i=1;i<5;i++)
+				hide[i] = true;
 			if(cards[Cards[0]].value<cards[Cards[k]].value)
 			{
 				//alert(`${cards[Cards[0]].value}<${cards[Cards[k]].value}`);
@@ -469,9 +481,9 @@ function main() {
 				tonus.pause();
 				tonus.currentTime=0;
 				Take = true;
+				Win = 0;
 				Credits += Win;
 				document.getElementById("credits").textContent = Credits;
-				Win = 0;
 				document.getElementById("win").textContent = Win;
 				flag_win[0] = false;
 				flag_win[1] = false;
@@ -501,7 +513,7 @@ function main() {
 				document.getElementById("buttonBet").innerHTML = "Bet";
 				document.getElementById("buttonSpin").innerHTML = "Spin";
 			}
-		},2000)
+		},4000)
 		}
 	};
 	buttonHelp.onclick = function(ev)
@@ -577,10 +589,16 @@ function main() {
 		else
 		{
 			var k =3;
-			hide=false;
-			
+			hide[3]=false;
+			setTimeout(() => {
+				for(var i=1;i<5;i++)
+					hide[i] = false;
+			},2000)
 			setTimeout(() => { 
-				hide = true;
+				hide[3] = true;
+			for(var i=1;i<5;i++)
+				hide[i] = true;
+			
 			if(cards[Cards[0]].value<cards[Cards[k]].value)
 			{
 				//alert(`${cards[Cards[0]].value}<${cards[Cards[k]].value}`);
@@ -603,9 +621,9 @@ function main() {
 				tonus.pause();
 				tonus.currentTime=0;
 				Take = true;
+				Win = 0;
 				Credits += Win;
 				document.getElementById("credits").textContent = Credits;
-				Win = 0;
 				document.getElementById("win").textContent = Win;
 				flag_win[0] = false;
 				flag_win[1] = false;
@@ -635,7 +653,7 @@ function main() {
 				document.getElementById("buttonBet").innerHTML = "Bet";
 				document.getElementById("buttonSpin").innerHTML = "Spin";
 			}
-		},2000)
+		},4000)
 		}
 	};
 	buttonBet.onclick = function(ev){
@@ -649,9 +667,15 @@ function main() {
 		else
 		{
 			var k =1;
-			hide=false;
+			hide[1]=false;
+			setTimeout(() => {
+				for(var i=1;i<5;i++)
+					hide[i] = false;
+			},2000)
 			setTimeout(() => { 
-			hide = true;
+			hide[1] = true;
+			for(var i=1;i<5;i++)
+				hide[i] = true;
 			if(cards[Cards[0]].value<cards[Cards[k]].value)
 			{
 				//alert(`${cards[Cards[0]].value}<${cards[Cards[k]].value}`);
@@ -674,9 +698,9 @@ function main() {
 				tonus.pause();
 				tonus.currentTime=0;
 				Take = true;
-				Credits += Win;
-				document.getElementById("credits").textContent = Credits;
 				Win = 0;
+				Credits += Win;
+				document.getElementById("credits").textContent = Credits;	
 				document.getElementById("win").textContent = Win;
 				flag_win[0] = false;
 				flag_win[1] = false;
@@ -706,7 +730,7 @@ function main() {
 				document.getElementById("buttonBet").innerHTML = "Bet";
 				document.getElementById("buttonSpin").innerHTML = "Spin";
 			}
-		},2000)
+		},4000)
 		}
 	}
 	var range = document.getElementById("quality");
@@ -2050,92 +2074,87 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 	gl.enable(gl.DEPTH_TEST);
 	if(!x_2)
 	{
-	gl.uniformMatrix4fv(u_ProjMatrix, false, projMatrix.elements);
-	var k = -1;
-	for (var j = 0; j < 5; j++) {
+		gl.uniformMatrix4fv(u_ProjMatrix, false, projMatrix.elements);
+		var k = -1;
+		for (var j = 0; j < 5; j++) {
+			if (startRotate[j])
+				modelMatrix.setRotate(currentAngle[j], 1, 0, 0);
+			gl.uniformMatrix4fv(u_ModelMatrix, false, modelMatrix.elements);
+			gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++k]]);
+			for (var i = 0 + j * n; i < n + j * n; i++)
+				gl.drawArrays(gl.TRIANGLES, 36 * i, 6);
+			gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++k]]);
+			for (var i = 0 + j * n; i < n + j * n; i++)
+				gl.drawArrays(gl.TRIANGLES, 36 * i + 6, 6);
+			gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++k]]);
+			for (var i = 0 + j * n; i < n + j * n; i++)
+				gl.drawArrays(gl.TRIANGLES, 36 * i + 12, 6);
+			gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++k]]);
+			for (var i = 0 + j * n; i < n + j * n; i++)
+				gl.drawArrays(gl.TRIANGLES, 36 * i + 18, 6);
+			gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++k]]);
+			for (var i = 0 + j * n; i < n + j * n; i++)
+				gl.drawArrays(gl.TRIANGLES, 36 * i + 24, 6);
+			gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++k]]);
+			for (var i = 0 + j * n; i < n + j * n; i++)
+				gl.drawArrays(gl.TRIANGLES, 36 * i + 30, 6);
 
-		if (startRotate[j])
-			modelMatrix.setRotate(currentAngle[j], 1, 0, 0);
-		gl.uniformMatrix4fv(u_ModelMatrix, false, modelMatrix.elements);
-		gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++k]]);
-		for (var i = 0 + j * n; i < n + j * n; i++)
-			gl.drawArrays(gl.TRIANGLES, 36 * i, 6);
-		gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++k]]);
-		for (var i = 0 + j * n; i < n + j * n; i++)
-			gl.drawArrays(gl.TRIANGLES, 36 * i + 6, 6);
-		gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++k]]);
-		for (var i = 0 + j * n; i < n + j * n; i++)
-			gl.drawArrays(gl.TRIANGLES, 36 * i + 12, 6);
-		gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++k]]);
-		for (var i = 0 + j * n; i < n + j * n; i++)
-			gl.drawArrays(gl.TRIANGLES, 36 * i + 18, 6);
-		gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++k]]);
-		for (var i = 0 + j * n; i < n + j * n; i++)
-			gl.drawArrays(gl.TRIANGLES, 36 * i + 24, 6);
-		gl.bindTexture(gl.TEXTURE_2D, Tex[Drums[++k]]);
-		for (var i = 0 + j * n; i < n + j * n; i++)
-			gl.drawArrays(gl.TRIANGLES, 36 * i + 30, 6);
-
-		gl.uniformMatrix4fv(u_ModelMatrix, false, modelMatrix.elements);
+			gl.uniformMatrix4fv(u_ModelMatrix, false, modelMatrix.elements);
+			modelMatrix.setRotate(0, 1, 0, 0);
+		}
 		modelMatrix.setRotate(0, 1, 0, 0);
-
-	}
-	modelMatrix.setRotate(0, 1, 0, 0);
-	gl.uniformMatrix4fv(u_ModelMatrix, false, modelMatrix.elements);
-	gl.bindTexture(gl.TEXTURE_2D, textures1);
-	if (ready1 && ready2 && ready3 && ready4 && ready5 && ready6 && ready7 && ready8)
-		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n, 6);
-	if (flag_win[0])
-		gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6, 7);
-	if (flag_win[1])
-		gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 7, 7);
-	if (flag_win[2])
-		gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 14, 7);
-	if (flag_win[3])
-		gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 21, 7);
-	if (flag_win[4])
-		gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 28, 7);
-	if (flag_win[5])
-		gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 35, 7);
-	if (flag_win[6])
-		gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 42, 7);
-	if (flag_win[7])
-		gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 49, 7);
-	if (flag_win[8])
-		gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 56, 7);
-	if (flag_win[9])
-		gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 63, 7);
-	if (flag_win[10])
-		gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 70, 7);
-	if (flag_win[11])
-		gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 77, 7);
-	if (flag_win[12])
-		gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 84, 7);
-	if (flag_win[13])
-		gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 91, 7);
-	if (flag_win[14])
-		gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 98, 7);
-	if (flag_win[15])
-		gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 105, 7);
-	if (flag_win[16])
-		gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 112, 7);
-	if (flag_win[17])
-		gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 119, 7);
-	if (flag_win[18])
-		gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 126, 7);
+		gl.uniformMatrix4fv(u_ModelMatrix, false, modelMatrix.elements);
+		gl.bindTexture(gl.TEXTURE_2D, textures1);
+		if (ready1 && ready2 && ready3 && ready4 && ready5 && ready6 && ready7 && ready8)
+			gl.drawArrays(gl.TRIANGLES, 36 * 5 * n, 6);
+		if (flag_win[0])
+			gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6, 7);
+		if (flag_win[1])
+			gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 7, 7);
+		if (flag_win[2])
+			gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 14, 7);
+		if (flag_win[3])
+			gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 21, 7);
+		if (flag_win[4])
+			gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 28, 7);
+		if (flag_win[5])
+			gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 35, 7);
+		if (flag_win[6])
+			gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 42, 7);
+		if (flag_win[7])
+			gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 49, 7);
+		if (flag_win[8])
+			gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 56, 7);
+		if (flag_win[9])
+			gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 63, 7);
+		if (flag_win[10])
+			gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 70, 7);
+		if (flag_win[11])
+			gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 77, 7);
+		if (flag_win[12])
+			gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 84, 7);
+		if (flag_win[13])
+			gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 91, 7);
+		if (flag_win[14])
+			gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 98, 7);
+		if (flag_win[15])
+			gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 105, 7);
+		if (flag_win[16])
+			gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 112, 7);
+		if (flag_win[17])
+			gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 119, 7);
+		if (flag_win[18])
+			gl.drawArrays(gl.LINE_STRIP, 36 * 5 * n + 6 + 126, 7);
 
 
-	gl.drawArrays(gl.LINES, 36 * 5 * n + 6 + 133, 2);
-	gl.drawArrays(gl.LINES, 36 * 5 * n + 6 + 135, 2);
-	gl.drawArrays(gl.LINES, 36 * 5 * n + 6 + 137, 2);
-	gl.drawArrays(gl.LINES, 36 * 5 * n + 6 + 139, 2);
-
+		gl.drawArrays(gl.LINES, 36 * 5 * n + 6 + 133, 2);
+		gl.drawArrays(gl.LINES, 36 * 5 * n + 6 + 135, 2);
+		gl.drawArrays(gl.LINES, 36 * 5 * n + 6 + 137, 2);
+		gl.drawArrays(gl.LINES, 36 * 5 * n + 6 + 139, 2);
 	}
 	else
 	{
-		
-		gl.bindTexture(gl.TEXTURE_2D, texturescard);
-		
+		gl.bindTexture(gl.TEXTURE_2D, texturescard);	
 		bbuf[7378] = 0.0
 		bbuf[7379] = 0.23
 
@@ -2153,12 +2172,8 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 		
 		bbuf[7423] = 1.0
 		bbuf[7424] = 0.78
-		
 		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
 		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141+6*52, 6);
-		
-		
-
 		bbuf[4570] = cards[Cards[0]].xx
 		bbuf[4571] = cards[Cards[0]].y
 
@@ -2176,187 +2191,183 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 		
 		bbuf[4615] = cards[Cards[0]].x
 		bbuf[4616] = cards[Cards[0]].yy
-		
 		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
 		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141, 6);
-		
 		gl.bindTexture(gl.TEXTURE_2D, texturescard);
-		if(!hide)
-			{
-		
-				
-		bbuf[4624] = cards[Cards[1]].xx
-		bbuf[4625] = cards[Cards[1]].y
+		if(!hide[1])
+		{		
+			bbuf[4624] = cards[Cards[1]].xx
+			bbuf[4625] = cards[Cards[1]].y
 
-		bbuf[4633] = cards[Cards[1]].xx
-		bbuf[4634] = cards[Cards[1]].yy
+			bbuf[4633] = cards[Cards[1]].xx
+			bbuf[4634] = cards[Cards[1]].yy
 		
-		bbuf[4642] = cards[Cards[1]].x
-		bbuf[4643] = cards[Cards[1]].y
+			bbuf[4642] = cards[Cards[1]].x
+			bbuf[4643] = cards[Cards[1]].y
 		
-		bbuf[4651] = cards[Cards[1]].x
-		bbuf[4652] = cards[Cards[1]].y
+			bbuf[4651] = cards[Cards[1]].x
+			bbuf[4652] = cards[Cards[1]].y
 		
-		bbuf[4660] = cards[Cards[1]].xx
-		bbuf[4661] = cards[Cards[1]].yy
+			bbuf[4660] = cards[Cards[1]].xx
+			bbuf[4661] = cards[Cards[1]].yy
 		
-		bbuf[4669] = cards[Cards[1]].x
-		bbuf[4670] = cards[Cards[1]].yy
-			}
-			else{
-				
-		bbuf[4624] = 0.0
-		bbuf[4625] = 0.22
+			bbuf[4669] = cards[Cards[1]].x
+			bbuf[4670] = cards[Cards[1]].yy
+		}
+		else
+		{		
+			bbuf[4624] = 0.0
+			bbuf[4625] = 0.22
 
-		bbuf[4633] = 0.0
-		bbuf[4634] = 0.01
+			bbuf[4633] = 0.0
+			bbuf[4634] = 0.01
 		
-		bbuf[4642] = 0.151
-		bbuf[4643] = 0.22
+			bbuf[4642] = 0.151
+			bbuf[4643] = 0.22
 		
-		bbuf[4651] = 0.151
-		bbuf[4652] = 0.22
+			bbuf[4651] = 0.151
+			bbuf[4652] = 0.22
 		
-		bbuf[4660] = 0.0
-		bbuf[4661] = 0.01
+			bbuf[4660] = 0.0
+			bbuf[4661] = 0.01
 		
-		bbuf[4669] = 0.151
-		bbuf[4670] = 0.01
-			}
+			bbuf[4669] = 0.151
+			bbuf[4670] = 0.01
+		}
 		
 		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
 		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141+6, 6);
 		
 		gl.bindTexture(gl.TEXTURE_2D, texturescard);
-		if(!hide)
-			{
-		bbuf[4678] = cards[Cards[2]].xx
-		bbuf[4679] = cards[Cards[2]].y
+		if(!hide[2])
+		{
+			bbuf[4678] = cards[Cards[2]].xx
+			bbuf[4679] = cards[Cards[2]].y
 
-		bbuf[4687] = cards[Cards[2]].xx
-		bbuf[4688] = cards[Cards[2]].yy
+			bbuf[4687] = cards[Cards[2]].xx
+			bbuf[4688] = cards[Cards[2]].yy
 		
-		bbuf[4696] = cards[Cards[2]].x
-		bbuf[4697] = cards[Cards[2]].y
+			bbuf[4696] = cards[Cards[2]].x
+			bbuf[4697] = cards[Cards[2]].y
 		
-		bbuf[4705] = cards[Cards[2]].x
-		bbuf[4706] = cards[Cards[2]].y
+			bbuf[4705] = cards[Cards[2]].x
+			bbuf[4706] = cards[Cards[2]].y
 		
-		bbuf[4714] = cards[Cards[2]].xx
-		bbuf[4715] = cards[Cards[2]].yy
+			bbuf[4714] = cards[Cards[2]].xx
+			bbuf[4715] = cards[Cards[2]].yy
 		
-		bbuf[4723] = cards[Cards[2]].x
-		bbuf[4724] = cards[Cards[2]].yy
-			}
-			else{
-				
-		bbuf[4678] = 0.0
-		bbuf[4679] = 0.22
+			bbuf[4723] = cards[Cards[2]].x
+			bbuf[4724] = cards[Cards[2]].yy
+		}
+		else
+		{		
+			bbuf[4678] = 0.0
+			bbuf[4679] = 0.22
 
-		bbuf[4687] = 0.0
-		bbuf[4688] = 0.01
+			bbuf[4687] = 0.0
+			bbuf[4688] = 0.01
 		
-		bbuf[4696] = 0.151
-		bbuf[4697] = 0.22
+			bbuf[4696] = 0.151
+			bbuf[4697] = 0.22
 		
-		bbuf[4705] = 0.151
-		bbuf[4706] = 0.22
+			bbuf[4705] = 0.151
+			bbuf[4706] = 0.22
 		
-		bbuf[4714] = 0.0
-		bbuf[4715] = 0.01
+			bbuf[4714] = 0.0
+			bbuf[4715] = 0.01
 		
-		bbuf[4723] = 0.151
-		bbuf[4724] = 0.01
-			}
+			bbuf[4723] = 0.151
+			bbuf[4724] = 0.01
+		}
 		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
 		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141+12, 6);
 		
 		gl.bindTexture(gl.TEXTURE_2D, texturescard);
-		if(!hide)
-			{
-		bbuf[4732] = cards[Cards[3]].xx
-		bbuf[4733] = cards[Cards[3]].y
+		if(!hide[3])
+		{
+			bbuf[4732] = cards[Cards[3]].xx
+			bbuf[4733] = cards[Cards[3]].y
 
-		bbuf[4741] = cards[Cards[3]].xx
-		bbuf[4742] = cards[Cards[3]].yy
+			bbuf[4741] = cards[Cards[3]].xx
+			bbuf[4742] = cards[Cards[3]].yy
 		
-		bbuf[4750] = cards[Cards[3]].x
-		bbuf[4751] = cards[Cards[3]].y
+			bbuf[4750] = cards[Cards[3]].x
+			bbuf[4751] = cards[Cards[3]].y
 		
-		bbuf[4759] = cards[Cards[3]].x
-		bbuf[4760] = cards[Cards[3]].y
+			bbuf[4759] = cards[Cards[3]].x
+			bbuf[4760] = cards[Cards[3]].y
 		
-		bbuf[4768] = cards[Cards[3]].xx
-		bbuf[4769] = cards[Cards[3]].yy
+			bbuf[4768] = cards[Cards[3]].xx
+			bbuf[4769] = cards[Cards[3]].yy
 		
-		bbuf[4777] = cards[Cards[3]].x
-		bbuf[4778] = cards[Cards[3]].yy
-			}
-			else{
-
-				bbuf[4732] = 0.0
-				bbuf[4733] = 0.22
+			bbuf[4777] = cards[Cards[3]].x
+			bbuf[4778] = cards[Cards[3]].yy
+		}
+		else
+		{
+			bbuf[4732] = 0.0
+			bbuf[4733] = 0.22
 		
-				bbuf[4741] = 0.0
-				bbuf[4742] = 0.01
+			bbuf[4741] = 0.0
+			bbuf[4742] = 0.01
 				
-				bbuf[4750] = 0.151
-				bbuf[4751] = 0.22
+			bbuf[4750] = 0.151
+			bbuf[4751] = 0.22
 				
-				bbuf[4759] = 0.151
-				bbuf[4760] = 0.22
+			bbuf[4759] = 0.151
+			bbuf[4760] = 0.22
 				
-				bbuf[4768] = 0.0
-				bbuf[4769] = 0.01
+			bbuf[4768] = 0.0
+			bbuf[4769] = 0.01
 				
-				bbuf[4777] = 0.151
-				bbuf[4778] = 0.01
-			}
-		
+			bbuf[4777] = 0.151
+			bbuf[4778] = 0.01
+		}
 		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
 		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141+18, 6);
 		
 		gl.bindTexture(gl.TEXTURE_2D, texturescard);
-		if(!hide)
-			{
-		bbuf[4786] = cards[Cards[4]].xx
-		bbuf[4787] = cards[Cards[4]].y
+		if(!hide[4])
+		{
+			bbuf[4786] = cards[Cards[4]].xx
+			bbuf[4787] = cards[Cards[4]].y
 
-		bbuf[4795] = cards[Cards[4]].xx
-		bbuf[4796] = cards[Cards[4]].yy
+			bbuf[4795] = cards[Cards[4]].xx
+			bbuf[4796] = cards[Cards[4]].yy
 		
-		bbuf[4804] = cards[Cards[4]].x
-		bbuf[4805] = cards[Cards[4]].y
+			bbuf[4804] = cards[Cards[4]].x
+			bbuf[4805] = cards[Cards[4]].y
 		
-		bbuf[4813] = cards[Cards[4]].x
-		bbuf[4814] = cards[Cards[4]].y
+			bbuf[4813] = cards[Cards[4]].x
+			bbuf[4814] = cards[Cards[4]].y
 		
-		bbuf[4822] = cards[Cards[4]].xx
-		bbuf[4823] = cards[Cards[4]].yy
+			bbuf[4822] = cards[Cards[4]].xx
+			bbuf[4823] = cards[Cards[4]].yy
 		
-		bbuf[4831] = cards[Cards[4]].x
-		bbuf[4832] = cards[Cards[4]].yy
-			}else{
+			bbuf[4831] = cards[Cards[4]].x
+			bbuf[4832] = cards[Cards[4]].yy
+		}
+		else
+		{
 				
-		bbuf[4786] = 0.0
-		bbuf[4787] = 0.22
+			bbuf[4786] = 0.0
+			bbuf[4787] = 0.22
 
-		bbuf[4795] = 0.0
-		bbuf[4796] = 0.01
+			bbuf[4795] = 0.0
+			bbuf[4796] = 0.01
 		
-		bbuf[4804] = 0.151
-		bbuf[4805] = 0.22
+			bbuf[4804] = 0.151
+			bbuf[4805] = 0.22
 		
-		bbuf[4813] = 0.151
-		bbuf[4814] = 0.22
+			bbuf[4813] = 0.151
+			bbuf[4814] = 0.22
 		
-		bbuf[4822] = 0.0
-		bbuf[4823] = 0.01
+			bbuf[4822] = 0.0
+			bbuf[4823] = 0.01
 		
-		bbuf[4831] = 0.151
-		bbuf[4832] = 0.01
-			}
-		
+			bbuf[4831] = 0.151
+			bbuf[4832] = 0.01
+		}
 		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
 		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141+24, 6);
 	}
