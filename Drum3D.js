@@ -291,6 +291,7 @@ var hide=[true,true,true,true,true]
 var Take=false
 var Risk=false
 //console.log(credits)
+
 function main() {
 	/*
 		spin.addEventListener('ended', function () {
