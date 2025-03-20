@@ -285,7 +285,8 @@ var win = new Audio('win.mp3');
 var tonus = new Audio('tonus.mp3');
 var Credits = document.getElementById("credits").textContent
 var Win = 0;
-var total_bet = document.getElementById("total_bet").textContent
+var total_bet = parseInt(document.getElementById("total_bet").textContent,10)
+console.log("tb-"+total_bet)
 var Cards=[];
 var hide=[true,true,true,true,true]
 var Take=false
@@ -660,9 +661,10 @@ function main() {
 	buttonBet.onclick = function(ev){
 		if(!x_2)
 		{
-			total_bet+=10;
+			total_bet = parseInt(total_bet + 10,10);
 			if (total_bet>100)
-				total_bet=10;
+				total_bet=parseInt(10);
+			console.log("tb2-"+total_bet)
 			document.getElementById("total_bet").textContent = total_bet;
 		}
 		else
@@ -750,7 +752,7 @@ function checkwin() {
 			//console.log("win1")
 			//return true;
 			if (!flag_win[0])
-				Win += 5;
+				Win += parseInt(total_bet);
 			flag_win[0] = true;
 			win.play();
 		}
@@ -758,7 +760,7 @@ function checkwin() {
 			//console.log("win2")
 			//return true;
 			if (!flag_win[1])
-				Win += 5;
+				Win += parseInt(total_bet);
 			flag_win[1] = true;
 			win.play();
 		}
@@ -766,7 +768,7 @@ function checkwin() {
 			//console.log("win3")
 			//return true;
 			if (!flag_win[2])
-				Win += 5;
+				Win += parseInt(total_bet);
 			flag_win[2] = true;
 			win.play();
 		}
@@ -774,7 +776,7 @@ function checkwin() {
 			//console.log("win4")
 			//return true;
 			if (!flag_win[3])
-				Win += 5;
+				Win += parseInt(total_bet);
 			flag_win[3] = true;
 			win.play();
 		}
@@ -782,7 +784,7 @@ function checkwin() {
 			//console.log("win5")
 			//return true;
 			if (!flag_win[4])
-				Win += 5;
+				Win += parseInt(total_bet);
 			flag_win[4] = true;
 			win.play();
 		}
@@ -790,7 +792,7 @@ function checkwin() {
 			//console.log("win6")
 			//return true;
 			if (!flag_win[5])
-				Win += 5;
+				Win += parseInt(total_bet);
 			flag_win[5] = true;
 			win.play();
 		}
@@ -798,7 +800,7 @@ function checkwin() {
 			//console.log("win7")
 			//return true;
 			if (!flag_win[6])
-				Win += 5;
+				Win += parseInt(total_bet);
 			flag_win[6] = true;
 			win.play();
 		}
@@ -806,7 +808,7 @@ function checkwin() {
 			//console.log("win8")
 			//return true;
 			if (!flag_win[7])
-				Win += 5;
+				Win += parseInt(total_bet);
 			flag_win[7] = true;
 			win.play();
 		}
@@ -814,7 +816,7 @@ function checkwin() {
 			//console.log("win9")
 			//return true;
 			if (!flag_win[8])
-				Win += 5;
+				Win += parseInt(total_bet);
 			flag_win[8] = true;
 			win.play();
 		}
@@ -822,7 +824,7 @@ function checkwin() {
 			//console.log("win10")
 			//return true;
 			if (!flag_win[9])
-				Win += 5;
+				Win += parseInt(total_bet);
 			flag_win[9] = true;
 			win.play();
 		}
@@ -831,7 +833,7 @@ function checkwin() {
 			//console.log("win11")
 			//return true;
 			if (!flag_win[10])
-				Win += 5;
+				Win += parseInt(total_bet);
 			flag_win[10] = true;
 			win.play();
 		}
@@ -840,7 +842,7 @@ function checkwin() {
 			//console.log("win12")
 			//return true;
 			if (!flag_win[11])
-				Win += 5;
+				Win += parseInt(total_bet);
 			flag_win[11] = true;
 			win.play();
 		}
@@ -849,7 +851,7 @@ function checkwin() {
 			//console.log("win13")
 			//return true;
 			if (!flag_win[12])
-				Win += 5;
+				Win += parseInt(total_bet);
 			flag_win[12] = true;
 			win.play();
 		}
@@ -857,7 +859,7 @@ function checkwin() {
 			//console.log("win14")
 			//return true;
 			if (!flag_win[13])
-				Win += 5;
+				Win += parseInt(total_bet);
 			flag_win[13] = true;
 			win.play();
 		}
@@ -865,7 +867,7 @@ function checkwin() {
 			//console.log("win15")
 			//return true;
 			if (!flag_win[14])
-				Win += 5;
+				Win += parseInt(total_bet);
 			flag_win[14] = true;
 			win.play();
 		}
@@ -873,7 +875,7 @@ function checkwin() {
 			//console.log("win16")
 			//return true;
 			if (!flag_win[15])
-				Win += 5;
+				Win += parseInt(total_bet);
 			flag_win[15] = true;
 			win.play();
 		}
@@ -881,7 +883,7 @@ function checkwin() {
 			//console.log("win17")
 			//return true;
 			if (!flag_win[16])
-				Win += 5;
+				Win += parseInt(total_bet);
 			flag_win[16] = true;
 			win.play();
 		}
@@ -889,7 +891,7 @@ function checkwin() {
 			//console.log("win18")
 			//return true;
 			if (!flag_win[17])
-				Win += 5;
+				Win += parseInt(total_bet);
 			flag_win[17] = true;
 			win.play();
 		}
@@ -897,7 +899,7 @@ function checkwin() {
 			//console.log("win19")
 			//return true;
 			if (!flag_win[18])
-				Win += 5;
+				Win += parseInt(total_bet);
 			flag_win[18] = true;
 			win.play();
 		}
