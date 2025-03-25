@@ -281,8 +281,12 @@ var c6 = {
 }
 var spin = new Audio('spin.mp3');
 var stop = new Audio('stop.mp3');
-var win = new Audio('win.mp3');
-var tonus = new Audio('tonus.mp3');
+var win = new Audio('winner.wav');
+var lose = new Audio('lose.wav');
+var tonus = new Audio('bonus_theme.mp3');
+var flip = new Audio('flip.mp3');
+var press_but = new Audio('button.mp3');
+var main_theme = new Audio('main_theme.mp3');
 var Credits = document.getElementById("credits").textContent
 var Win = 0;
 var total_bet = parseInt(document.getElementById("total_bet").textContent,10)
@@ -364,11 +368,15 @@ function main() {
 		};
 	buttonSpin.onclick = function (ev) { 
 		if(!x_2) 
+		{
+			press_but.play();
 			click(ev, gl, canvas, currentAngle);
+		}
 		else
 		{
 			var k =2;
 			hide[2]=false;
+			flip.play();
 			setTimeout(() => {
 				for(var i=1;i<5;i++)
 					hide[i] = false;
@@ -380,6 +388,7 @@ function main() {
 			if(cards[Cards[0]].value<cards[Cards[k]].value)
 			{
 				//alert(`${cards[Cards[0]].value}<${cards[Cards[k]].value}`);
+				win.play();
 				Win*=2;
 				document.getElementById("win").textContent = Win;
 				Cards =[];
@@ -397,6 +406,7 @@ function main() {
 			{
 				//alert(`${cards[Cards[0]].value}>${cards[Cards[k]].value}`);
 				tonus.pause();
+				lose.play();
 				tonus.currentTime=0;
 				Take = true;	
 				Win = 0;
@@ -436,6 +446,7 @@ function main() {
 	buttonRisk.onclick = function (ev) { 
 		if(Win>0 && !x_2)
 		{
+			press_but.play();
 			x_2 = !x_2; 
 			Cards =[];
 			for (var i=0;i<5;i++)
@@ -452,6 +463,7 @@ function main() {
 		else if(x_2)
 		{
 			var k = 4;
+			flip.play();
 			hide[4]=false;
 			setTimeout(() => {
 				for(var i=1;i<5;i++)
@@ -464,6 +476,7 @@ function main() {
 			if(cards[Cards[0]].value<cards[Cards[k]].value)
 			{
 				//alert(`${cards[Cards[0]].value}<${cards[Cards[k]].value}`);
+				win.play();
 				Win*=2;
 				document.getElementById("win").textContent = Win;
 				Cards =[];
@@ -480,6 +493,7 @@ function main() {
 			else
 			{
 				//alert(`${cards[Cards[0]].value}>${cards[Cards[k]].value}`);
+				lose.play();
 				tonus.pause();
 				tonus.currentTime=0;
 				Take = true;
@@ -522,6 +536,7 @@ function main() {
 	{
 		if(x_2)
 		{
+			press_but.play();
 			tonus.pause();
 			tonus.currentTime=0;
 			Take = true;
@@ -561,6 +576,7 @@ function main() {
 	buttonTake.onclick = function(ev){
 		if(!x_2)
 		{
+			press_but.play();
 			Take = true;
 			Credits += Win;
 			document.getElementById("credits").textContent = Credits;
@@ -590,6 +606,7 @@ function main() {
 		}
 		else
 		{
+			flip.play();
 			var k =3;
 			hide[3]=false;
 			setTimeout(() => {
@@ -604,6 +621,7 @@ function main() {
 			if(cards[Cards[0]].value<cards[Cards[k]].value)
 			{
 				//alert(`${cards[Cards[0]].value}<${cards[Cards[k]].value}`);
+				win.play();
 				Win*=2;
 				document.getElementById("win").textContent = Win;
 				Cards =[];
@@ -621,6 +639,7 @@ function main() {
 			{
 				//alert(`${cards[Cards[0]].value}>${cards[Cards[k]].value}`);
 				tonus.pause();
+				lose.play()
 				tonus.currentTime=0;
 				Take = true;
 				Win = 0;
@@ -661,6 +680,7 @@ function main() {
 	buttonBet.onclick = function(ev){
 		if(!x_2)
 		{
+			press_but.play();
 			total_bet = parseInt(total_bet + 10,10);
 			if (total_bet>100)
 				total_bet=parseInt(10);
@@ -669,6 +689,7 @@ function main() {
 		}
 		else
 		{
+			flip.play();
 			var k =1;
 			hide[1]=false;
 			setTimeout(() => {
@@ -682,6 +703,7 @@ function main() {
 			if(cards[Cards[0]].value<cards[Cards[k]].value)
 			{
 				//alert(`${cards[Cards[0]].value}<${cards[Cards[k]].value}`);
+				win.play()
 				Win*=2;
 				document.getElementById("win").textContent = Win;
 				Cards =[];
@@ -698,6 +720,7 @@ function main() {
 			else
 			{
 				//alert(`${cards[Cards[0]].value}>${cards[Cards[k]].value}`);
+				lose.play();
 				tonus.pause();
 				tonus.currentTime=0;
 				Take = true;
@@ -910,9 +933,16 @@ function checkwin() {
 }
 function animate(angle) {
 	if (startRotate[0] || startRotate[1] || startRotate[2] || startRotate[3] || startRotate[4])
+	{	
 		spin.play();
+		//main_theme.pause();
+	}
 	else
 	{
+		if(!x_2)
+			main_theme.play();
+		else
+		main_theme.pause();
 		spin.pause();
 		spin.currentTime = 0;
 	}
