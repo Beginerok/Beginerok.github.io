@@ -87,4 +87,5 @@ bufx2[bufx2.length] = x//xx
 bufx2[bufx2.length] = yy//0
 }
 
+
 console.log(cards)

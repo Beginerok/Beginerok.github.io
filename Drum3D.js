@@ -1582,7 +1582,7 @@ function initVertexBuffers(gl) {
 	buf[buf.length] = 0.0
 	buf[buf.length] = 1.0
 	buf[buf.length] = 1.0//0
-	buf[buf.length] = 0.0//1
+	buf[buf.length] = 0.185//1
 
 	buf[buf.length] = 1.0
 	buf[buf.length] = 1.0
@@ -1612,7 +1612,7 @@ function initVertexBuffers(gl) {
 	buf[buf.length] = 0.0
 	buf[buf.length] = 1.0
 	buf[buf.length] = 1.0//0 
-	buf[buf.length] = 0.0//1
+	buf[buf.length] = 0.185//1
 
 	buf[buf.length] = 1.0
 	buf[buf.length] = -1.0
@@ -1622,7 +1622,7 @@ function initVertexBuffers(gl) {
 	buf[buf.length] = 0.0
 	buf[buf.length] = 1.0
 	buf[buf.length] = 0.0//1
-	buf[buf.length] = 0.0//1
+	buf[buf.length] = 0.185//1
 
 
 	//ащк дшту
@@ -1742,6 +1742,7 @@ function initVertexBuffers(gl) {
 		//console.log(buf.length)
 	}
 	
+	console.log("tr")
 	console.log(buf.length)
 	buf[buf.length] = -1.0
 	buf[buf.length] = 1.0
@@ -1804,6 +1805,200 @@ function initVertexBuffers(gl) {
 	buf[buf.length] = 0.0//1
 	console.log(buf.length)
 
+bufx=[]
+	//credits
+bufx[bufx.length] = -0.9
+bufx[bufx.length] = 0.9
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0//0
+bufx[bufx.length] = 0.185//0
+
+bufx[bufx.length] = -0.9
+bufx[bufx.length] = 0.8
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0//0
+bufx[bufx.length] = 0.138//1
+
+bufx[bufx.length] = -0.7
+bufx[bufx.length] = 0.9
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.13//1
+bufx[bufx.length] = 0.185//0
+
+bufx[bufx.length] = -0.7
+bufx[bufx.length] = 0.9
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.13//1
+bufx[bufx.length] = 0.185//0
+
+bufx[bufx.length] = -0.9
+bufx[bufx.length] = 0.8
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0//0 
+bufx[bufx.length] = 0.138//1
+
+bufx[bufx.length] = -0.7
+bufx[bufx.length] = 0.8
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.13//1
+bufx[bufx.length] = 0.138//1
+
+//win
+
+bufx[bufx.length] = -0.1
+bufx[bufx.length] = 0.9
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0//0
+bufx[bufx.length] = 0.138//0
+
+bufx[bufx.length] = -0.1
+bufx[bufx.length] = 0.8
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0//0
+bufx[bufx.length] = 0.0925//1
+
+bufx[bufx.length] = 0.1
+bufx[bufx.length] = 0.9
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.07//1
+bufx[bufx.length] = 0.138//0
+
+bufx[bufx.length] = 0.1
+bufx[bufx.length] = 0.9
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.07//1
+bufx[bufx.length] = 0.138//0
+
+bufx[bufx.length] = -0.1
+bufx[bufx.length] = 0.8
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0//0 
+bufx[bufx.length] = 0.0925//1
+
+bufx[bufx.length] = 0.1
+bufx[bufx.length] = 0.8
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.07//1
+bufx[bufx.length] = 0.0925//1
+
+
+//total bet
+
+bufx[bufx.length] = 0.6
+bufx[bufx.length] = 0.9
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0//0
+bufx[bufx.length] = 0.0925//0
+
+bufx[bufx.length] = 0.6
+bufx[bufx.length] = 0.8
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0//0
+bufx[bufx.length] = 0.04625//1
+
+bufx[bufx.length] = 0.8
+bufx[bufx.length] = 0.9
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.14//1
+bufx[bufx.length] = 0.0925//0
+
+bufx[bufx.length] = 0.8
+bufx[bufx.length] = 0.9
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.14//1
+bufx[bufx.length] = 0.0925//0
+
+bufx[bufx.length] = 0.6
+bufx[bufx.length] = 0.8
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0//0 
+bufx[bufx.length] = 0.04625//1
+
+bufx[bufx.length] = 0.8
+bufx[bufx.length] = 0.8
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 0.0
+bufx[bufx.length] = 1.0
+bufx[bufx.length] = 0.14//1
+bufx[bufx.length] = 0.04625//1
+
+		console.log("tr2")
+		console.log(buf.length)
+for (var i=0;i<bufx.length;i++)
+	{
+		buf.push(bufx[i])
+	}
+	console.log(buf.length)
 	//console.log("---")
 	var vertexTexCoordBuffer = gl.createBuffer();
 	if (!vertexTexCoordBuffer) {
@@ -1850,10 +2045,11 @@ function initTextures(gl) {
 	var texturefon = gl.createTexture();
 	var u_Samplerq = gl.getUniformLocation(gl.program, 'u_Sampler');
 	var fon = new Image();
-	requestCORSIfNotSameOrigin(fon,/*'border.png'*/"https://s6.imgcdn.dev/WSTpv.png");
+	//requestCORSIfNotSameOrigin(fon,/*'border.png'*/"https://s6.imgcdn.dev/WSTpv.png");
+	requestCORSIfNotSameOrigin(fon,"https://s6.imgcdn.dev/YwkCXH.png");
 	fon.crossOrigin = "anonymous";
 	fon.onload = function () { loadTexture(gl, texturefon, u_Samplerq, fon, 0); };
-	fon.src = "https://s6.imgcdn.dev/WSTpv.png";//'border.png'
+	fon.src = "https://s6.imgcdn.dev/YwkCXH.png";//'border.png'
 	LoadDrum(gl);
 	return true;
 }
@@ -2404,4 +2600,12 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 		gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
 		gl.drawArrays(gl.TRIANGLES, 36 * 5 * n+6+141+24, 6);
 	}
+	gl.bindTexture(gl.TEXTURE_2D, textures1);
+	gl.drawArrays(gl.TRIANGLES, (7425)/9, 6);
+
+	gl.bindTexture(gl.TEXTURE_2D, textures1);
+	gl.drawArrays(gl.TRIANGLES, (7425)/9+6, 6);
+
+	gl.bindTexture(gl.TEXTURE_2D, textures1);
+	gl.drawArrays(gl.TRIANGLES, (7425)/9+6+6, 6);
 }
