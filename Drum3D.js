@@ -296,7 +296,22 @@ var hide=[true,true,true,true,true]
 var Take=false
 var Risk=false
 //console.log(credits)
-
+class numbers
+{
+    constructor(value,x,xx)
+    {
+        this.value = value
+        this.x = x
+        this.xx = xx
+    }
+}
+var numbersXcoord=[]
+for (var i=0.0;i<10.0;i+=1.0)
+{
+	numbersXcoord[numbersXcoord.length] = new numbers(parseInt(i+1),parseInt(i)==0?0:0.195/10.0*(i) ,0.195/10.0*(i+1.0))
+}
+numbersXcoord[numbersXcoord.length-1].value = 0
+console.log(numbersXcoord)
 function main() {
 	/*
 		spin.addEventListener('ended', function () {
@@ -1999,7 +2014,229 @@ for (var i=0;i<bufx.length;i++)
 		buf.push(bufx[i])
 	}
 	console.log(buf.length)
-	//console.log("---")
+
+	bufcredits=[]
+	//credits
+
+	for (var i=0;i<10;i++)
+	{
+
+bufcredits[bufcredits.length] = -0.67+0.04*i
+bufcredits[bufcredits.length] = 0.9
+bufcredits[bufcredits.length] = 1.0
+bufcredits[bufcredits.length] = 0.0
+bufcredits[bufcredits.length] = 0.0
+bufcredits[bufcredits.length] = 0.0
+bufcredits[bufcredits.length] = 1.0
+bufcredits[bufcredits.length] = numbersXcoord[9].x//0
+bufcredits[bufcredits.length] = 0.04175//0
+
+bufcredits[bufcredits.length] = -0.67+0.04*i
+bufcredits[bufcredits.length] = 0.8
+bufcredits[bufcredits.length] = 1.0
+bufcredits[bufcredits.length] = 0.0
+bufcredits[bufcredits.length] = 0.0
+bufcredits[bufcredits.length] = 0.0
+bufcredits[bufcredits.length] = 1.0
+bufcredits[bufcredits.length] = numbersXcoord[9].x//0
+bufcredits[bufcredits.length] = 0.005//1
+
+bufcredits[bufcredits.length] = -0.63+0.04*i
+bufcredits[bufcredits.length] = 0.9
+bufcredits[bufcredits.length] = 1.0
+bufcredits[bufcredits.length] = 0.0
+bufcredits[bufcredits.length] = 0.0
+bufcredits[bufcredits.length] = 0.0
+bufcredits[bufcredits.length] = 1.0
+bufcredits[bufcredits.length] = numbersXcoord[9].xx//1
+bufcredits[bufcredits.length] = 0.04175//0
+
+bufcredits[bufcredits.length] = -0.63+0.04*i
+bufcredits[bufcredits.length] = 0.9
+bufcredits[bufcredits.length] = 1.0
+bufcredits[bufcredits.length] = 0.0
+bufcredits[bufcredits.length] = 0.0
+bufcredits[bufcredits.length] = 0.0
+bufcredits[bufcredits.length] = 1.0
+bufcredits[bufcredits.length] = numbersXcoord[9].xx//1
+bufcredits[bufcredits.length] = 0.04175//0
+
+bufcredits[bufcredits.length] = -0.67+0.04*i
+bufcredits[bufcredits.length] = 0.8
+bufcredits[bufcredits.length] = 1.0
+bufcredits[bufcredits.length] = 0.0
+bufcredits[bufcredits.length] = 0.0
+bufcredits[bufcredits.length] = 0.0
+bufcredits[bufcredits.length] = 1.0
+bufcredits[bufcredits.length] = numbersXcoord[9].x//0 
+bufcredits[bufcredits.length] = 0.005//1
+
+bufcredits[bufcredits.length] = -0.63+0.04*i
+bufcredits[bufcredits.length] = 0.8
+bufcredits[bufcredits.length] = 1.0
+bufcredits[bufcredits.length] = 0.0
+bufcredits[bufcredits.length] = 0.0
+bufcredits[bufcredits.length] = 0.0
+bufcredits[bufcredits.length] = 1.0
+bufcredits[bufcredits.length] = numbersXcoord[9].xx//1
+bufcredits[bufcredits.length] = 0.005//1
+	}
+
+for (var i=0;i<bufcredits.length;i++)
+{
+	buf.push(bufcredits[i])
+	//console.log(buf.length)
+}
+	console.log(buf.length)
+	console.log("---")
+
+	//winnumbers
+	for (var i=0;i<10;i++)
+		{
+	
+	bufcredits[bufcredits.length] = 0.13+0.04*i
+	bufcredits[bufcredits.length] = 0.9
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = numbersXcoord[9].x//0
+	bufcredits[bufcredits.length] = 0.04175//0
+	
+	bufcredits[bufcredits.length] = 0.13+0.04*i
+	bufcredits[bufcredits.length] = 0.8
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = numbersXcoord[9].x//0
+	bufcredits[bufcredits.length] = 0.005//1
+	
+	bufcredits[bufcredits.length] = 0.17+0.04*i
+	bufcredits[bufcredits.length] = 0.9
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = numbersXcoord[9].xx//1
+	bufcredits[bufcredits.length] = 0.04175//0
+	
+	bufcredits[bufcredits.length] = 0.17+0.04*i
+	bufcredits[bufcredits.length] = 0.9
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = numbersXcoord[9].xx//1
+	bufcredits[bufcredits.length] = 0.04175//0
+	
+	bufcredits[bufcredits.length] = 0.13+0.04*i
+	bufcredits[bufcredits.length] = 0.8
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = numbersXcoord[9].x//0 
+	bufcredits[bufcredits.length] = 0.005//1
+	
+	bufcredits[bufcredits.length] = 0.17+0.04*i
+	bufcredits[bufcredits.length] = 0.8
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = numbersXcoord[9].xx//1
+	bufcredits[bufcredits.length] = 0.005//1
+		}
+	
+	for (var i=54*10;i<bufcredits.length;i++)
+	{
+		buf.push(bufcredits[i])
+		//console.log(buf.length)
+	}
+		console.log(buf.length)
+		console.log("---")
+
+		//tbnumbers
+	for (var i=0;i<3;i++)
+		{
+	
+	bufcredits[bufcredits.length] = 0.83+0.04*i
+	bufcredits[bufcredits.length] = 0.9
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = numbersXcoord[9].x//0
+	bufcredits[bufcredits.length] = 0.04175//0
+	
+	bufcredits[bufcredits.length] = 0.83+0.04*i
+	bufcredits[bufcredits.length] = 0.8
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = numbersXcoord[9].x//0
+	bufcredits[bufcredits.length] = 0.005//1
+	
+	bufcredits[bufcredits.length] = 0.87+0.04*i
+	bufcredits[bufcredits.length] = 0.9
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = numbersXcoord[9].xx//1
+	bufcredits[bufcredits.length] = 0.04175//0
+	
+	bufcredits[bufcredits.length] = 0.87+0.04*i
+	bufcredits[bufcredits.length] = 0.9
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = numbersXcoord[9].xx//1
+	bufcredits[bufcredits.length] = 0.04175//0
+	
+	bufcredits[bufcredits.length] = 0.83+0.04*i
+	bufcredits[bufcredits.length] = 0.8
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = numbersXcoord[9].x//0 
+	bufcredits[bufcredits.length] = 0.005//1
+	
+	bufcredits[bufcredits.length] = 0.87+0.04*i
+	bufcredits[bufcredits.length] = 0.8
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 0.0
+	bufcredits[bufcredits.length] = 1.0
+	bufcredits[bufcredits.length] = numbersXcoord[9].xx//1
+	bufcredits[bufcredits.length] = 0.005//1
+		}
+	
+	for (var i=54*10*2;i<bufcredits.length;i++)
+	{
+		buf.push(bufcredits[i])
+		//console.log(buf.length)
+	}
+		console.log(buf.length)
+		console.log("---")
+
+
 	var vertexTexCoordBuffer = gl.createBuffer();
 	if (!vertexTexCoordBuffer) {
 		console.log('Failed to create the buffer object');
@@ -2620,4 +2857,22 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 
 	gl.bindTexture(gl.TEXTURE_2D, textures1);
 	gl.drawArrays(gl.TRIANGLES, (7425)/9+6+6, 6);
+	//numcred
+	for (var i=0;i<10;i++)
+	{
+		gl.bindTexture(gl.TEXTURE_2D, textures1);
+		gl.drawArrays(gl.TRIANGLES, (7425)/9+6+6+6+6*i, 6);
+	}
+	for (var i=0;i<10;i++)
+		{
+			gl.bindTexture(gl.TEXTURE_2D, textures1);
+			gl.drawArrays(gl.TRIANGLES, (7425)/9+6+6+6+60+6*i, 6);
+		}
+
+		for (var i=0;i<3;i++)
+			{
+				gl.bindTexture(gl.TEXTURE_2D, textures1);
+				gl.drawArrays(gl.TRIANGLES, (7425)/9+6+6+6+60+60+6*i, 6);
+			}
+
 }
