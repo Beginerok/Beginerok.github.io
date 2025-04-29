@@ -2046,10 +2046,12 @@ function initTextures(gl) {
 	var u_Samplerq = gl.getUniformLocation(gl.program, 'u_Sampler');
 	var fon = new Image();
 	//requestCORSIfNotSameOrigin(fon,/*'border.png'*/"https://s6.imgcdn.dev/WSTpv.png");
-	requestCORSIfNotSameOrigin(fon,"https://s6.imgcdn.dev/YwkCXH.png");
+	//var pathfon = "https://s6.imgcdn.dev/YwkCXH.png";
+	var pathfon = "fonex.png";
+	requestCORSIfNotSameOrigin(fon,pathfon);
 	fon.crossOrigin = "anonymous";
 	fon.onload = function () { loadTexture(gl, texturefon, u_Samplerq, fon, 0); };
-	fon.src = "https://s6.imgcdn.dev/YwkCXH.png";//'border.png'
+	fon.src = pathfon;//'border.png'
 	LoadDrum(gl);
 	return true;
 }
@@ -2077,7 +2079,7 @@ function LoadDrum(gl) {
 		paths6 = "https://s6.imgcdn.dev/WkbzH.png";//"bonus.png";//bonus
 		paths7 = "https://s6.imgcdn.dev/WkEQd.jpg";//"wild.jpg";//wild
 		*/
-		
+		/*
 		paths1 = "https://s6.imgcdn.dev/YYH9Ow.png";
 		paths2 = "https://s6.imgcdn.dev/YYHfQT.png";
 		paths3 = "https://s6.imgcdn.dev/YYHWe9.png";
@@ -2085,8 +2087,18 @@ function LoadDrum(gl) {
 		paths5 = "https://s6.imgcdn.dev/YYHLz8.png";
 		paths6 = "https://s6.imgcdn.dev/YYHbt2.png";
 		paths7 = "https://s6.imgcdn.dev/YYHmYi.png";
+		*/
+		paths1 = "auto1.png";
+		paths2 = "auto2.png";
+		paths3 = "auto3.png";
+		paths4 = "auto4.png";
+		paths5 = "auto5.png";
+		paths6 = "bonus.png";
+		paths7 = "wild.png";
+
 		//pathscard = "https://s6.imgcdn.dev/YYXIuN.png";
-		pathscard = "https://s6.imgcdn.dev/YhN8z8.png";
+		//pathscard = "https://s6.imgcdn.dev/YhN8z8.png";
+		pathscard = "atlas2.png";
 
 	texturesdrum1 = gl.createTexture();
 	u_Sampler1 = gl.getUniformLocation(gl.program, 'u_Sampler');
