@@ -21,12 +21,14 @@ var FSHADER_SOURCE =
 	'void main() {\n' +
 	'gl_FragColor = texture2D(u_Sampler, v_TexCoord)+v_Color;\n' +
 	'}\n';
+var vertexTexCoordBuffer,vertexTexCoordBuffer2,a_Position2,a_TexCoord2,a_Color2 ,a_Position,a_TexCoord,a_Color,FSIZE,FSIZE2;
+var bufcredits=[];
 var x_2=false
 var startRotate = [0, 0, 0, 0, 0];
 var textures1, textures2, textures3, textures4, textures5, textures6, textures7, textures8, Drums = [], Tex = [],texturescard;
 var ready1 = false, ready2 = false, ready3 = false, ready4 = false, ready5 = false, ready6 = false, ready7 = false, ready8 = false;
 var n =  2;
-var bbuf=[]
+var bbuf=[],bbuf2=[]	
 var flag_win = [
 	false,
 	false,
@@ -2015,9 +2017,9 @@ for (var i=0;i<bufx.length;i++)
 	}
 	console.log(buf.length)
 
-	bufcredits=[]
+	
 	//credits
-
+	console.log("bfcr-"+bufcredits.length)
 	for (var i=0;i<10;i++)
 	{
 
@@ -2228,6 +2230,7 @@ for (var i=0;i<bufcredits.length;i++)
 	bufcredits[bufcredits.length] = 0.005//1
 		}
 	
+		console.log("bfcr-"+bufcredits.length)
 	for (var i=54*10*2;i<bufcredits.length;i++)
 	{
 		buf.push(bufcredits[i])
@@ -2237,7 +2240,7 @@ for (var i=0;i<bufcredits.length;i++)
 		console.log("---")
 
 
-	var vertexTexCoordBuffer = gl.createBuffer();
+	/*var*/ vertexTexCoordBuffer = gl.createBuffer();
 	if (!vertexTexCoordBuffer) {
 		console.log('Failed to create the buffer object');
 		return -1;
@@ -2245,8 +2248,8 @@ for (var i=0;i<bufcredits.length;i++)
 	gl.bindBuffer(gl.ARRAY_BUFFER, vertexTexCoordBuffer);
 	bbuf = new Float32Array(buf)
 	gl.bufferData(gl.ARRAY_BUFFER, bbuf, gl.STATIC_DRAW);
-	var FSIZE = bbuf.BYTES_PER_ELEMENT;
-	var a_Position = gl.getAttribLocation(gl.program, 'a_Position');
+	FSIZE = bbuf.BYTES_PER_ELEMENT;
+	a_Position = gl.getAttribLocation(gl.program, 'a_Position');
 	if (a_Position < 0) {
 		console.log('Failed to get the storage location of a_Position');
 		return -1;
@@ -2254,7 +2257,7 @@ for (var i=0;i<bufcredits.length;i++)
 	gl.vertexAttribPointer(a_Position, 3, gl.FLOAT, false, FSIZE * 9, 0);
 	gl.enableVertexAttribArray(a_Position);
 	//console.log(gl.getError());
-	var a_Color = gl.getAttribLocation(gl.program, 'a_Color');
+	a_Color = gl.getAttribLocation(gl.program, 'a_Color');
 	//console.log(gl.getError());
 	/*
 	if (a_Color < 0) {
@@ -2264,7 +2267,7 @@ for (var i=0;i<bufcredits.length;i++)
 	*/
 	gl.vertexAttribPointer(a_Color, 4, gl.FLOAT, false, FSIZE * 9, FSIZE * 3);
 	gl.enableVertexAttribArray(a_Color);
-	var a_TexCoord = gl.getAttribLocation(gl.program, 'a_TexCoord');
+	a_TexCoord = gl.getAttribLocation(gl.program, 'a_TexCoord');
 	if (a_TexCoord < 0) {
 		console.log('Failed to get the storage location of a_TexCoord');
 		return -1;
@@ -2272,6 +2275,22 @@ for (var i=0;i<bufcredits.length;i++)
 	gl.vertexAttribPointer(a_TexCoord, 2, gl.FLOAT, false, FSIZE * 9, FSIZE * 7);
 	gl.enableVertexAttribArray(a_TexCoord);
 	//end function
+
+	vertexTexCoordBuffer2 = gl.createBuffer();
+	gl.bindBuffer(gl.ARRAY_BUFFER, vertexTexCoordBuffer2);
+	bbuf2 = new Float32Array(bufcredits)
+	gl.bufferData(gl.ARRAY_BUFFER, bbuf2, gl.STATIC_DRAW);
+	FSIZE2 = bbuf2.BYTES_PER_ELEMENT;
+	a_Position2 = gl.getAttribLocation(gl.program, 'a_Position');
+	gl.vertexAttribPointer(a_Position2, 3, gl.FLOAT, false, FSIZE2 * 9, 0);
+	gl.enableVertexAttribArray(a_Position2);
+	a_Color2 = gl.getAttribLocation(gl.program, 'a_Color');
+	gl.vertexAttribPointer(a_Color2, 4, gl.FLOAT, false, FSIZE2 * 9, FSIZE2 * 3);
+	gl.enableVertexAttribArray(a_Color2);
+	a_TexCoord2 = gl.getAttribLocation(gl.program, 'a_TexCoord');
+	gl.vertexAttribPointer(a_TexCoord2, 2, gl.FLOAT, false, FSIZE2 * 9, FSIZE2 * 7);
+	gl.enableVertexAttribArray(a_TexCoord2);
+	gl.bindBuffer(gl.ARRAY_BUFFER, null);
 }
 function requestCORSIfNotSameOrigin(img, url) {
 	if ((new URL(url, window.location.href)).origin !== window.location.origin) {
@@ -2550,6 +2569,14 @@ function loadTexture(gl, textureID, u_SamplerID, imageID, numID) {
 function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMatrix, nf) {
 	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 	gl.enable(gl.DEPTH_TEST);
+	
+	gl.bindBuffer(gl.ARRAY_BUFFER,vertexTexCoordBuffer);
+	gl.vertexAttribPointer(a_Position, 3, gl.FLOAT, false, FSIZE * 9, 0);
+	gl.enableVertexAttribArray(a_Position);
+	gl.vertexAttribPointer(a_Color, 4, gl.FLOAT, false, FSIZE * 9, FSIZE * 3);
+	gl.enableVertexAttribArray(a_Color);
+	gl.vertexAttribPointer(a_TexCoord, 2, gl.FLOAT, false, FSIZE * 9, FSIZE * 7);
+	gl.enableVertexAttribArray(a_TexCoord);
 	if(!x_2)
 	{
 		gl.uniformMatrix4fv(u_ProjMatrix, false, projMatrix.elements);
@@ -2858,21 +2885,29 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 	gl.bindTexture(gl.TEXTURE_2D, textures1);
 	gl.drawArrays(gl.TRIANGLES, (7425)/9+6+6, 6);
 	//numcred
+	gl.bindBuffer(gl.ARRAY_BUFFER,vertexTexCoordBuffer2);
+	gl.vertexAttribPointer(a_Position, 3, gl.FLOAT, false, FSIZE2 * 9, 0);
+	gl.enableVertexAttribArray(a_Position);
+	gl.vertexAttribPointer(a_Color, 4, gl.FLOAT, false, FSIZE2 * 9, FSIZE2 * 3);
+	gl.enableVertexAttribArray(a_Color);
+	gl.vertexAttribPointer(a_TexCoord, 2, gl.FLOAT, false, FSIZE2 * 9, FSIZE2 * 7);
+	gl.enableVertexAttribArray(a_TexCoord);
 	for (var i=0;i<10;i++)
 	{
 		gl.bindTexture(gl.TEXTURE_2D, textures1);
-		gl.drawArrays(gl.TRIANGLES, (7425)/9+6+6+6+6*i, 6);
+		//gl.drawArrays(gl.TRIANGLES, (7425)/9+6+6+6+6*i, 6);
+		gl.drawArrays(gl.TRIANGLES, 6*i, 6);
 	}
 	for (var i=0;i<10;i++)
-		{
-			gl.bindTexture(gl.TEXTURE_2D, textures1);
-			gl.drawArrays(gl.TRIANGLES, (7425)/9+6+6+6+60+6*i, 6);
-		}
-
-		for (var i=0;i<3;i++)
-			{
-				gl.bindTexture(gl.TEXTURE_2D, textures1);
-				gl.drawArrays(gl.TRIANGLES, (7425)/9+6+6+6+60+60+6*i, 6);
-			}
-
+	{
+		gl.bindTexture(gl.TEXTURE_2D, textures1);
+		//gl.drawArrays(gl.TRIANGLES, (7425)/9+6+6+6+60+6*i, 6);
+		gl.drawArrays(gl.TRIANGLES, 60+6*i, 6);
+	}
+	for (var i=0;i<3;i++)
+	{
+		gl.bindTexture(gl.TEXTURE_2D, textures1);
+		//gl.drawArrays(gl.TRIANGLES, (7425)/9+6+6+6+60+60+6*i, 6);
+		gl.drawArrays(gl.TRIANGLES, 60+60+6*i, 6);
+	}
 }
