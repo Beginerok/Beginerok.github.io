@@ -2019,7 +2019,6 @@ for (var i=0;i<bufx.length;i++)
 
 	
 	//credits
-	console.log("bfcr-"+bufcredits.length)
 	for (var i=0;i<10;i++)
 	{
 
@@ -2031,6 +2030,8 @@ bufcredits[bufcredits.length] = 0.0
 bufcredits[bufcredits.length] = 0.0
 bufcredits[bufcredits.length] = 1.0
 bufcredits[bufcredits.length] = numbersXcoord[9].x//0
+
+console.log("bfcr-",bufcredits.length-1)
 bufcredits[bufcredits.length] = 0.04175//0
 
 bufcredits[bufcredits.length] = -0.67+0.04*i
@@ -2081,6 +2082,8 @@ bufcredits[bufcredits.length] = 0.0
 bufcredits[bufcredits.length] = 0.0
 bufcredits[bufcredits.length] = 1.0
 bufcredits[bufcredits.length] = numbersXcoord[9].xx//1
+
+console.log("bfcr-",bufcredits.length-1)
 bufcredits[bufcredits.length] = 0.005//1
 	}
 
@@ -2230,7 +2233,7 @@ for (var i=0;i<bufcredits.length;i++)
 	bufcredits[bufcredits.length] = 0.005//1
 		}
 	
-		console.log("bfcr-"+bufcredits.length)
+		//console.log("bfcr-"+bufcredits.length)
 	for (var i=54*10*2;i<bufcredits.length;i++)
 	{
 		buf.push(bufcredits[i])
@@ -2885,6 +2888,8 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 	gl.bindTexture(gl.TEXTURE_2D, textures1);
 	gl.drawArrays(gl.TRIANGLES, (7425)/9+6+6, 6);
 	//numcred
+	var cred = Credits.toString();
+	
 	gl.bindBuffer(gl.ARRAY_BUFFER,vertexTexCoordBuffer2);
 	gl.vertexAttribPointer(a_Position, 3, gl.FLOAT, false, FSIZE2 * 9, 0);
 	gl.enableVertexAttribArray(a_Position);
@@ -2892,22 +2897,71 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 	gl.enableVertexAttribArray(a_Color);
 	gl.vertexAttribPointer(a_TexCoord, 2, gl.FLOAT, false, FSIZE2 * 9, FSIZE2 * 7);
 	gl.enableVertexAttribArray(a_TexCoord);
-	for (var i=0;i<10;i++)
+	gl.bindTexture(gl.TEXTURE_2D, textures1);
+	for (var i=0;i<Credits.toString().length;i++)
 	{
-		gl.bindTexture(gl.TEXTURE_2D, textures1);
-		//gl.drawArrays(gl.TRIANGLES, (7425)/9+6+6+6+6*i, 6);
+		for(var j=0;j<10;j++)
+		{
+			if(parseInt(cred[i])===parseInt(numbersXcoord[j].value))
+			{
+			//console.log("cred",cred[i])
+			//console.log("cx",numbersXcoord[j].value)
+				bbuf2[7+54*i] = numbersXcoord[j].x//0
+				bbuf2[16+54*i] = numbersXcoord[j].x//0
+				bbuf2[25+54*i] = numbersXcoord[j].xx//1
+				bbuf2[34+54*i] = numbersXcoord[j].xx//1
+				bbuf2[43+54*i] = numbersXcoord[j].x//0 
+				bbuf2[52+54*i] = numbersXcoord[j].xx//1
+			}
+		}
+			
+		gl.bufferData(gl.ARRAY_BUFFER, bbuf2, gl.STATIC_DRAW);
 		gl.drawArrays(gl.TRIANGLES, 6*i, 6);
 	}
-	for (var i=0;i<10;i++)
+	gl.bindTexture(gl.TEXTURE_2D, textures1);
+	var win_ = Win.toString();
+	for (var i=0;i<Win.toString().length;i++)
 	{
-		gl.bindTexture(gl.TEXTURE_2D, textures1);
 		//gl.drawArrays(gl.TRIANGLES, (7425)/9+6+6+6+60+6*i, 6);
+		for(var j=0;j<10;j++)
+			{
+				if(parseInt(win_[i])===parseInt(numbersXcoord[j].value))
+				{
+				//console.log("cred",cred[i])
+				//console.log("cx",numbersXcoord[j].value)
+					bbuf2[7+54*i+540] = numbersXcoord[j].x//0
+					bbuf2[16+54*i+540] = numbersXcoord[j].x//0
+					bbuf2[25+54*i+540] = numbersXcoord[j].xx//1
+					bbuf2[34+54*i+540] = numbersXcoord[j].xx//1
+					bbuf2[43+54*i+540] = numbersXcoord[j].x//0 
+					bbuf2[52+54*i+540] = numbersXcoord[j].xx//1
+				}
+			}
+				
+		gl.bufferData(gl.ARRAY_BUFFER, bbuf2, gl.STATIC_DRAW);
 		gl.drawArrays(gl.TRIANGLES, 60+6*i, 6);
 	}
-	for (var i=0;i<3;i++)
+	gl.bindTexture(gl.TEXTURE_2D, textures1);
+	var total_bet_=total_bet.toString();
+	for (var i=0;i<total_bet.toString().length;i++)
 	{
-		gl.bindTexture(gl.TEXTURE_2D, textures1);
 		//gl.drawArrays(gl.TRIANGLES, (7425)/9+6+6+6+60+60+6*i, 6);
+		for(var j=0;j<10;j++)
+			{
+				if(parseInt(total_bet_[i])===parseInt(numbersXcoord[j].value))
+				{
+				//console.log("cred",cred[i])
+				//console.log("cx",numbersXcoord[j].value)
+					bbuf2[7+54*i+540+540] = numbersXcoord[j].x//0
+					bbuf2[16+54*i+540+540] = numbersXcoord[j].x//0
+					bbuf2[25+54*i+540+540] = numbersXcoord[j].xx//1
+					bbuf2[34+54*i+540+540] = numbersXcoord[j].xx//1
+					bbuf2[43+54*i+540+540] = numbersXcoord[j].x//0 
+					bbuf2[52+54*i+540+540] = numbersXcoord[j].xx//1
+				}
+			}
+				
+		gl.bufferData(gl.ARRAY_BUFFER, bbuf2, gl.STATIC_DRAW);
 		gl.drawArrays(gl.TRIANGLES, 60+60+6*i, 6);
 	}
 }
