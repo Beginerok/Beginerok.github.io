@@ -2572,6 +2572,7 @@ function loadTexture(gl, textureID, u_SamplerID, imageID, numID) {
 function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMatrix, nf) {
 	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 	gl.enable(gl.DEPTH_TEST);
+	//gl.disable(gl.MULTISAMPLE)
 	
 	gl.bindBuffer(gl.ARRAY_BUFFER,vertexTexCoordBuffer);
 	gl.vertexAttribPointer(a_Position, 3, gl.FLOAT, false, FSIZE * 9, 0);
