@@ -21,6 +21,7 @@ var FSHADER_SOURCE =
 	'void main() {\n' +
 	'gl_FragColor = texture2D(u_Sampler, v_TexCoord)+v_Color;\n' +
 	'}\n';
+	
 var vertexTexCoordBuffer,vertexTexCoordBuffer2,a_Position2,a_TexCoord2,a_Color2 ,a_Position,a_TexCoord,a_Color,FSIZE,FSIZE2;
 var bufcredits=[];
 var x_2=false

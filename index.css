@@ -1,23 +1,42 @@
-div {
-    width: 80%;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: nowrap;
-    align-items: stretch;
-    align-content: center;
-    flex-direction: row;
+canvas {
+  position: relative;
+  z-index: 1;
+  width: 100%;
 }
-
-body {
-    background-color: #010a01;
-    display: flex;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-evenly;
+.button-row {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around; /* или space-between */
+  z-index: 10;
+  padding: 0 10px;
+  box-sizing: border-box;
 }
-
+.button-row button {
+  flex: 1;           /* равномерное распределение ширины */
+  margin: 0 5px;     /* отступы между кнопками */
+  max-width: 150px;  /* ограничение максимальной ширины кнопки (по желанию) */
+  
+    border: 3px solid;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-size: 30px;
+    transition: 0.2s;
+    margin-right: auto;
+    
+    color: rgb(25, 122, 12);
+}
+.button:hover {
+    background-color: rgb(25, 122, 12);
+    color: #fff;
+    border: 3px solid rgb(25, 122, 12);
+    box-shadow: 10px 10px 100px 6px rgb(25, 122, 12);
+}
+.text {
+    color: #fff;
+}
 .neon-text {
     font-size: 40px;
     color: #fff;
@@ -31,66 +50,12 @@ body {
         0 0 102px #0fa,
         0 0 151px #0fa;
 }
-
-.text {
-    color: #fff;
-}
-
-canvas {
-    width: 90%;
-}
-
-.button {
-    /*
-    width: 20%;
-    height: 8%;
-    margin-top: 2%;
-    */
-    /*
-    background-color: #04AA6D;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    */
-    border: 3px solid;
-    background-color: transparent;
-    text-transform: uppercase;
-    font-size: 30px;
-    transition: 0.2s;
-    margin-right: auto;
-}
-
-.button {
-    color: rgb(25, 122, 12);
-}
-
-.button:hover {
-    background-color: rgb(25, 122, 12);
-    color: #fff;
-    border: 3px solid rgb(25, 122, 12);
-    box-shadow: 10px 10px 100px 6px rgb(25, 122, 12);
-}
-
-/*
 body {
-  margin: 0;
+    background-color: #010a01;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
-canvas {
-        width: auto;
-        height: auto;
-		margin-right: auto;
-		margin-left: auto;
-		display: block;
-}
-button{
-		margin-right: auto;
-		margin-left: auto;
-		display: block;
-		font-family: Arial,Helvetica,sans-serif;
-		font-size: 100px;
-	}
-*/

@@ -18,9 +18,9 @@
         </div>
     </div>
     <canvas id="c"></canvas>
-    <div>
+    <div class="button-row">
     <div><button id="buttonHelp" class="button">Help</button></div>
-    <div><button id="buttonBet" class="button">Bet</button></div>
+    <div><button id="buttonBet"  class="button">Bet</button></div>
     <div><button id="buttonSpin" class="button">Spin</button></div>
     <div><button id="buttonTake" class="button">Take</button></div>
     <div><button id="buttonRisk" class="button">Risk</button></div>
@@ -36,17 +36,17 @@
     <p id="nearFar" hidden> The near and far values are displayed here. </p>
     <div>
         <div>
-            <label class="text">Generator interval from 0 to 6(integer numbers) </label>
+            <label class="text" hidden>Generator interval from 0 to 6(integer numbers) </label>
         </div>
         <div>
-            <label class="text"><input type="text" id="min" value="0" size="1" />0</label>
+            <label class="text" hidden><input type="text" id="min" value="0" size="1" />0</label>
         </div>
         <div>
-            <label class="text"><input type="text" id="max" value="6" size="1" />6</label>
+            <label class="text" hidden><input type="text" id="max" value="6" size="1" />6</label>
         </div>
         <div>
-            <input type="range" id="quality" name="quality" min="2" max="10" value="2"/>
-            <label class="text">Graphics Quality</label>
+            <input type="range" id="quality" name="quality" min="2" max="10" value="2" hidden/>
+            <label class="text" hidden>Graphics Quality</label>
           </div>
     </div>
 </body>
