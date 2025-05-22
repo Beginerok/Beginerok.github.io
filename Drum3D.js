@@ -333,8 +333,8 @@ function main() {
 	var canvas = document.getElementById('c');
 	var nf = document.getElementById('nearFar');
 	//var gl = canvas.getContext("webgl");
-	//var gl = getWebGLContext(canvas,{ antialias: true });
-	const gl = canvas.getContext('webgl', { antialias: true });
+	var gl = getWebGLContext(canvas);
+	//const gl = canvas.getContext('webgl', { antialias: true });
 	if (!gl) {
 		console.log('Failed to get the rendering context for WebGL');
 		return;
@@ -2968,7 +2968,7 @@ function draw(gl, currentAngle, modelMatrix, u_ModelMatrix, u_ProjMatrix, projMa
 				}
 			}
 				
-		gl.bufferData(gl.ARRAY_BUFFER, bbuf2, gl.STATIC_DRAW);
+		gl.bufferData(gl.ARRAY_BUFFER, bbuf2, gl.STATIC_DRAW);	
 		gl.drawArrays(gl.TRIANGLES, 60+60+6*i, 6);
 	}
 }
