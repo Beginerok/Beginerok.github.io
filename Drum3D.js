@@ -2312,7 +2312,7 @@ function initTextures(gl) {
 	var fon = new Image();
 	//requestCORSIfNotSameOrigin(fon,/*'border.png'*/"https://s6.imgcdn.dev/WSTpv.png");
 	//var pathfon = "https://s6.imgcdn.dev/YwkCXH.png";
-	var pathfon = "fonex.png";
+	var pathfon = "fonex2.png";
 	requestCORSIfNotSameOrigin(fon,pathfon);
 	fon.crossOrigin = "anonymous";
 	fon.onload = function () { loadTexture(gl, texturefon, u_Samplerq, fon, 0); };
@@ -2363,7 +2363,7 @@ function LoadDrum(gl) {
 
 		//pathscard = "https://s6.imgcdn.dev/YYXIuN.png";
 		//pathscard = "https://s6.imgcdn.dev/YhN8z8.png";
-		pathscard = "atlas2.png";
+		pathscard = "atlas3.png";
 
 	texturesdrum1 = gl.createTexture();
 	u_Sampler1 = gl.getUniformLocation(gl.program, 'u_Sampler');
